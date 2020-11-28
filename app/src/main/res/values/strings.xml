@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">appTopet</string>
+    <string name="str_hint_nome">ToPet</string>
+    <string name="str_hint_bemvindo">Bem Vindo!</string>
+    <string name="str_hint_ou">Ou</string>
+    <string name="str_btn_google">Entre com o Google</string>
+    <string name="str_btn_facebook">Entre com o Facebook</string>
+    <string name="str_btn_compromissos">Compromissos</string>
+    <string name="str_btn_animais">Animais</string>
+    <string name="str_btn_social">Social</string>
 </resources>
