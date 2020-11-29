@@ -23,5 +23,14 @@ public class TelaPrincipal extends AppCompatActivity {
             }
         });
 
+        Button btnSocial = findViewById(R.id.btnSocial);
+        btnSocial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TelaPrincipal.this, Social.class);
+                startActivity(i);
+            }
+        });
+
     }
 }

@@ -3,6 +3,7 @@ package com.example.apptopet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,8 +39,8 @@ public class MyAdapter extends RecyclerView.Adapter {
 
         View v = holder.itemView;
 
-        TextInputEditText tvNome = v.findViewById(R.id.etNome);
-        tvNome.setText(myItem.nome);
+        Button btnListaAnimal = v.findViewById(R.id.btnListaAnimal);
+        btnListaAnimal.setText(myItem.nome);
 
 
     }
