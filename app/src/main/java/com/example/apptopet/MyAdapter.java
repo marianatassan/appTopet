@@ -39,8 +39,11 @@ public class MyAdapter extends RecyclerView.Adapter {
 
         View v = holder.itemView;
 
-        Button btnListaAnimal = v.findViewById(R.id.btnListaAnimal);
-        btnListaAnimal.setText(myItem.nome);
+        ImageView imvPhoto = v.findViewById(R.id.imvPhoto);
+        imvPhoto.setImageResource(myItem.foto);
+
+        TextView tvNome = v.findViewById(R.id.tvNome);
+        tvNome.setText(myItem.nome);
 
 
     }

@@ -25,9 +25,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/gatoo" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -36,9 +37,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/gato" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -47,9 +49,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/calopsita" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -58,9 +61,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/coelho"
+        tools:srcCompat="@drawable/coelho" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -69,9 +77,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
         app:layout_constraintTop_toBottomOf="@+id/imageView13"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/hamster" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -80,42 +92,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/cachorro" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"

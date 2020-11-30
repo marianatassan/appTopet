@@ -2,6 +2,7 @@ package com.example.apptopet;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -37,6 +39,16 @@ public class AnimaisLista extends AppCompatActivity {
                 startActivityForResult(i, NEW_ITEM_REQUEST);
             }
         });
+
+        ImageView animalItem = findViewById(R.id.imvListaAnimais);
+        animalItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AnimaisLista.this, PerfilAnimal.class);
+                startActivity(i);
+            }
+        });
+
         AnimaisListaViewModel vm = new ViewModelProvider(this).get(AnimaisListaViewModel.class);
         List<MyItem> animais = vm.getItems();
 
