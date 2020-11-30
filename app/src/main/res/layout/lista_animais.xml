@@ -5,32 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imvListaAnimais"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
     <TextView
         android:id="@+id/tvListaAnimais"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/str_hint_nome"
+        android:background="#C3C1C1"
+        android:hint="   Meus pets"
         android:textColorHint="#000000"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvListaAnimais" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListaAnimais"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,4 +40,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/design_default_color_on_secondary"
+        app:layout_constraintBottom_toTopOf="@+id/rvListaAnimais"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvListaAnimais" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
