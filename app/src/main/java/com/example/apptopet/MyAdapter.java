@@ -17,6 +17,7 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter {
 
     AnimaisLista animaisLista;
+    PerfilAnimal perfilAnimal;
     List<MyItem> animais;
 
     public MyAdapter(AnimaisLista animaisLista, List<MyItem> animais) {
@@ -34,10 +35,16 @@ public class MyAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         MyItem myItem = animais.get(position);
 
         View v = holder.itemView;
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animaisLista.startPerfilAnimal(animais.get(position));
+            }
+        });
 
         ImageView imvPhoto = v.findViewById(R.id.imvPhoto);
         imvPhoto.setImageResource(myItem.foto);

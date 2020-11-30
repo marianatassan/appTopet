@@ -13,6 +13,8 @@ public class PerfilAnimal extends AppCompatActivity {
 
     MyAdapter2 myAdapter2;
 
+    String animais;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -40,15 +40,6 @@ public class AnimaisLista extends AppCompatActivity {
             }
         });
 
-        ImageView animalItem = findViewById(R.id.imvListaAnimais);
-        animalItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AnimaisLista.this, PerfilAnimal.class);
-                startActivity(i);
-            }
-        });
-
         AnimaisListaViewModel vm = new ViewModelProvider(this).get(AnimaisListaViewModel.class);
         List<MyItem> animais = vm.getItems();
 
@@ -84,5 +75,11 @@ public class AnimaisLista extends AppCompatActivity {
                 myAdapter.notifyItemInserted(animais.size()-1);
             }
         }
+    }
+
+    public void startPerfilAnimal(MyItem animais) {
+        Intent i = new Intent(AnimaisLista.this, PerfilAnimal.class);
+        //i.putExtra("photo_path", animais);
+        startActivity(i);
     }
 }
