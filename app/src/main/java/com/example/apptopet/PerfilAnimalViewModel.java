@@ -6,26 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PerfilAnimalViewModel extends ViewModel {
-    List<MyItem2> compromissos = new ArrayList<>();
+    List<MyItem> compromissos = new ArrayList<>();
 
     public PerfilAnimalViewModel() {
-        MyItem2 compromisso1 = new MyItem2();
+        MyItem compromisso1 = new MyItem();
         compromisso1.compromisso = "Escovação";
         compromisso1.data = "25/05/2020";
 
-        MyItem2 compromisso2 = new MyItem2();
+        MyItem compromisso2 = new MyItem();
         compromisso2.compromisso = "Veterinário";
         compromisso2.data = "25/05/2020";
 
-        MyItem2 compromisso3 = new MyItem2();
+        MyItem compromisso3 = new MyItem();
         compromisso3.compromisso = "Cortar Unhas";
         compromisso3.data = "25/05/2020";
 
-        MyItem2 compromisso4 = new MyItem2();
+        MyItem compromisso4 = new MyItem();
         compromisso4.compromisso = "Banho";
         compromisso4.data = "25/05/2020";
 
-        MyItem2 compromisso5 = new MyItem2();
+        MyItem compromisso5 = new MyItem();
         compromisso5.compromisso = "Tosagem";
         compromisso5.data = "25/05/2020";
 
@@ -36,7 +36,7 @@ public class PerfilAnimalViewModel extends ViewModel {
         compromissos.add(compromisso5);
     }
 
-    public List<MyItem2> getItems() {
+    public List<MyItem> getItems() {
         return compromissos;
     }
 }
