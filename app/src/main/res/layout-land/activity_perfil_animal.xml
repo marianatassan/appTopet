@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilAnimal">
+
+    <ImageView
+        android:id="@+id/imvPerfil"
+        android:layout_width="125dp"
+        android:layout_height="126dp"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp"
+        tools:srcCompat="@drawable/ic_baseline_account_circle_24"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvNomeAnimal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Nome: Dudu"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imvPerfil"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRaca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Raça: Alguma"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imvPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeAnimal" />
+
+    <TextView
+        android:id="@+id/tvEspecie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Espécie: Cachorro"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imvPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/tvRaca" />
+
+    <TextView
+        android:id="@+id/tvDtNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Data de nascimento: 12/10/2020"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imvPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/tvEspecie" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDtNascimento" />
+
+    <Button
+        android:id="@+id/btnSaude"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/costume_botao_principal"
+        android:hint="Saúde"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvCompromissos"
+        app:layout_constraintVertical_bias="0.699" />
+
+    <Button
+        android:id="@+id/btnNotas"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/costume_botao_principal"
+        android:hint="Notas"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaude" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCompromissos"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeCompromisso" />
+
+    <TextView
+        android:id="@+id/tvNomeCompromisso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#8ECC6D"
+        android:hint="Compromisso"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvDtCompromisso"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/tvDtCompromisso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="#8ECC6D"
+        android:hint="Data"
+        android:textColorHint="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabtnPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:clickable="true"
+        app:backgroundTint="#F2BBBF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvCompromissos"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
