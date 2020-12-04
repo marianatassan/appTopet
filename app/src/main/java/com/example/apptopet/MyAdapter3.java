@@ -11,18 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MyAdapter3 extends RecyclerView.Adapter {
-    Saude saude;
+    VaccinesFragment vaccinesFragment;
     List<MyItem> vacinas;
+    View vista;
+    Saude saude;
 
-    public MyAdapter3(Saude saude, List<MyItem> vacinas) {
-        this.saude = saude;
+    public MyAdapter3(VaccinesFragment vaccinesFragment, List<MyItem> vacinas) {
+        this.vaccinesFragment = vaccinesFragment;
         this.vacinas = vacinas;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(saude);
+        LayoutInflater inflater = LayoutInflater.from(vista);
         View v3 = inflater.inflate(R.layout.item_lista_vacinas, parent, false);
         return new RecyclerView.ViewHolder(v3) {
         };

@@ -6,183 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".Saude">
 
-    <TextView
-        android:id="@+id/tvTitleVacina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="Carteira de Vacinação"
-        android:textColorHint="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvNomeVacina"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Nome"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/tvDtVacina"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleVacina" />
-
-    <TextView
-        android:id="@+id/tvDtVacina"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:hint="Data"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/tvDtRev"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleVacina" />
-
-    <TextView
-        android:id="@+id/tvDtRev"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:hint="Revacinação"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/tvPesoVac"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleVacina" />
-
-    <TextView
-        android:id="@+id/tvPesoVac"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:hint="Peso"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleVacina" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvVacinas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider8" />
-
-    <TextView
-        android:id="@+id/tvTitleRemedio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Medicações"
-        android:textColorHint="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton3" />
-
-    <TextView
-        android:id="@+id/tvNomeRem"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Nome"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/tvDtRem"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleRemedio" />
-
-    <TextView
-        android:id="@+id/tvDtRem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:hint="Data"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/tvDtRem2"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleRemedio" />
-
-    <TextView
-        android:id="@+id/tvDtRem2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:hint="Próx. dose"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/tvPesoRem"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleRemedio" />
-
-    <TextView
-        android:id="@+id/tvPesoRem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:hint="Peso"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleRemedio" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRemedios"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider9" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:clickable="true"
-        app:backgroundTint="#F2BBBF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvVacinas"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:clickable="true"
-        app:backgroundTint="#F2BBBF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvRemedios"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <View
-        android:id="@+id/divider8"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btnNavSaude"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="?android:attr/listDivider"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:itemBackground="@color/cardview_light_background"
+        app:itemTextColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeVacina" />
+        app:menu="@menu/vaccine_bottom_nav_menu" />
 
-    <View
-        android:id="@+id/divider9"
+    <FrameLayout
+        android:id="@+id/flSaude"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="?android:attr/listDivider"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnNavSaude"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeRem" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

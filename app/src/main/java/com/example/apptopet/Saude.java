@@ -1,11 +1,17 @@
 package com.example.apptopet;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -18,30 +24,35 @@ public class Saude extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saude);
 
-        VacinaViewModel vm = new ViewModelProvider(this).get(VacinaViewModel.class);
-        List<MyItem > vacinas = vm.getItems();
+        VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
+        setFragment(vaccinesFragment);
 
-        myAdapter3 = new MyAdapter3(this, vacinas);
+        MedicationsFragment medicationsFragment = MedicationsFragment.newInstance();
+        setFragment(medicationsFragment);
 
-        RecyclerView rvVacinas = findViewById(R.id.rvVacinas);
-        rvVacinas.setHasFixedSize(true);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavSaude);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.opVaccines:
+                        VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
+                        setFragment(vaccinesFragment);
+                        break;
+                    case R.id.opMedications:
+                        MedicationsFragment medicationsFragment = MedicationsFragment.newInstance();
+                        setFragment(medicationsFragment);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        rvVacinas.setLayoutManager(layoutManager);
-
-        rvVacinas.setAdapter(myAdapter3);
-
-        RemedioViewModel vm2 = new ViewModelProvider(this).get(RemedioViewModel.class);
-        List<MyItem > remedios = vm.getItems();
-
-        myAdapter4 = new MyAdapter4(this, remedios);
-
-        RecyclerView rvRemedios = findViewById(R.id.rvRemedios);
-        rvRemedios.setHasFixedSize(true);
-
-        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(this);
-        rvRemedios.setLayoutManager(layoutManager2);
-
-        rvRemedios.setAdapter(myAdapter4);
+    void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.flSaude, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
