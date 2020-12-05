@@ -2,11 +2,18 @@ package com.example.apptopet;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,29 +21,12 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class MedicationsFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    MyAdapter4 myAdapter4;
 
     public MedicationsFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MedicationsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static MedicationsFragment newInstance() {
         MedicationsFragment fragment = new MedicationsFragment();
         return fragment;
@@ -52,5 +42,26 @@ public class MedicationsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_medications, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        RemedioViewModel vm = new ViewModelProvider(getActivity()).get(RemedioViewModel.class);
+        List<MyItem> remedios = vm.getItems();
+
+        myAdapter4 = new MyAdapter4(this, remedios);
+
+        RecyclerView rvMedications = getView().findViewById(R.id.rvMedications);
+        rvMedications.setHasFixedSize(true);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        rvMedications.setLayoutManager(layoutManager);
+
+        rvMedications.setAdapter(myAdapter4);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvMedications.getContext(), DividerItemDecoration.VERTICAL);
+        rvMedications.addItemDecoration(dividerItemDecoration);
     }
 }

@@ -24,7 +24,7 @@ public class MyAdapter3 extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(vaccinesFragment);
+        LayoutInflater inflater = LayoutInflater.from(vaccinesFragment.getActivity());
         View v3 = inflater.inflate(R.layout.item_lista_vacinas, parent, false);
         return new RecyclerView.ViewHolder(v3) {
         };
