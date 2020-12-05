@@ -27,9 +27,6 @@ public class Saude extends AppCompatActivity {
         VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
         setFragment(vaccinesFragment);
 
-        MedicationsFragment medicationsFragment = MedicationsFragment.newInstance();
-        setFragment(medicationsFragment);
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavSaude);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

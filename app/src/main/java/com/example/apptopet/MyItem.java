@@ -1,5 +1,7 @@
 package com.example.apptopet;
 
+import android.graphics.drawable.Drawable;
+
 public class MyItem {
     public String nome;
     public int foto;
@@ -16,4 +18,6 @@ public class MyItem {
     public String dtRemedio;
     public String dtRemedio2;
     public String pesoRemedio;
+
+    public int foto_social;
 }

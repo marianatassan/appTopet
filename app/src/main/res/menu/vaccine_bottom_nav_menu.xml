@@ -4,10 +4,14 @@
 
     <item
         android:id="@+id/opVaccines"
-        android:icon="@drawable/seringa"
-        android:title="Vacinas" />
+        android:enabled="true"
+        android:icon="@drawable/seringa2"
+        android:title="Vacinas"
+        android:visible="true" />
     <item
         android:id="@+id/opMedications"
-        android:icon="@drawable/pilula"
-        android:title="Medicações" />
+        android:enabled="true"
+        android:icon="@drawable/pilula2"
+        android:title="Medicações"
+        android:visible="true" />
 </menu>

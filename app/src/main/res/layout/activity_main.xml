@@ -46,7 +46,7 @@
         android:id="@+id/imvLogo"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="150dp"
         android:contentDescription="wtf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

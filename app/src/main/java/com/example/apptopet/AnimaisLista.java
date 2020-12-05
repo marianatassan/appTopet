@@ -1,5 +1,6 @@
 package com.example.apptopet;
 
+import androidx.annotation.Dimension;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -55,6 +56,9 @@ public class AnimaisLista extends AppCompatActivity {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvListaAnimais.getContext(), DividerItemDecoration.VERTICAL);
         rvListaAnimais.addItemDecoration(dividerItemDecoration);
+
+
+
     }
 
     @Override
