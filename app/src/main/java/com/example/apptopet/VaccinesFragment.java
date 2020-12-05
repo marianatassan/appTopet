@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,17 +23,7 @@ import java.util.List;
  */
 public class VaccinesFragment extends Fragment {
     MyAdapter3 myAdapter3;
-    Saude saude;
-    VaccinesFragment vaccinesFragment;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public VaccinesFragment() {
         // Required empty public constructor
@@ -60,8 +51,7 @@ public class VaccinesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vista = inflater.inflate(R.layout.fragment_vaccines, container, false);
-        return vista;
+        return inflater.inflate(R.layout.fragment_vaccines, container, false);
     }
 
     @Override
@@ -83,8 +73,7 @@ public class VaccinesFragment extends Fragment {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvVaccines.getContext(), DividerItemDecoration.VERTICAL);
         rvVaccines.addItemDecoration(dividerItemDecoration);
-        //mViewModel = new ViewModelProvider(getActivity()).get(VaccinesViewModel.class);
 
-        //MyAdapter3 myAdapter3
     }
+
 }
