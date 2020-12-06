@@ -32,5 +32,13 @@ public class TelaPrincipal extends AppCompatActivity {
             }
         });
 
+        Button btnCompromissos = findViewById(R.id.btnCompromissos);
+        btnCompromissos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TelaPrincipal.this, Compromissos.class);
+                startActivity(i);
+            }
+        });
     }
 }

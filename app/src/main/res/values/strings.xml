@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">appTopet</string>
+    <string name="app_name">Topet</string>
     <string name="str_hint_nome">ToPet</string>
     <string name="str_hint_bemvindo">Bem Vindo!</string>
     <string name="str_hint_ou">Ou</string>
@@ -7,7 +7,10 @@
     <string name="str_btn_facebook">Entre com o Facebook</string>
     <string name="str_btn_compromissos">Compromissos</string>
     <string name="str_btn_animais">Animais</string>
+    <string name="str_nome">Nome</string>
+    <string name="str_race">Raça</string>
     <string name="str_btn_social">Social</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_nome_vacina">Nome da vacina</string>
+    <string name="str_peso_animal">Peso</string>
+    <string name="str_nome_medication">Nome da medicação</string>
 </resources>

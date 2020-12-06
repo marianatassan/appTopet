@@ -20,4 +20,9 @@ public class MyItem {
     public String pesoRemedio;
 
     public int foto_social;
+
+    public String nomeCompromisso;
+    public String nomePet;
+    public String dtCompromisso;
+    public String dias;
 }

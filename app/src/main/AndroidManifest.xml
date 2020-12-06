@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Saude"></activity>
+        <activity android:name=".AddVaccine"></activity>
+        <activity android:name=".AddMedication"></activity>
+        <activity android:name=".Compromissos" />
+        <activity android:name=".Saude" />
         <activity android:name=".PerfilAnimal" />
         <activity android:name=".Social" />
         <activity android:name=".AdicionarAnimal" />
