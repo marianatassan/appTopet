@@ -5,13 +5,13 @@
     <item
         android:id="@+id/opVaccines"
         android:enabled="true"
-        android:icon="@drawable/seringa2"
+        android:icon="@drawable/seringa_oficiall"
         android:title="Vacinas"
         android:visible="true" />
     <item
         android:id="@+id/opMedications"
         android:enabled="true"
-        android:icon="@drawable/pilula2"
+        android:icon="@drawable/pilula_oficial"
         android:title="Medicações"
         android:visible="true" />
 </menu>
