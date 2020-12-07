@@ -32,6 +32,15 @@ public class PerfilAnimal extends AppCompatActivity {
             }
         });
 
+        Button btnNotas = findViewById(R.id.btnNotas);
+        btnNotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PerfilAnimal.this, Notas.class);
+                startActivity(i);
+            }
+        });
+
         PerfilAnimalViewModel vm = new ViewModelProvider(this).get(PerfilAnimalViewModel.class);
         List<MyItem> compromissos = vm.getItems();
 
