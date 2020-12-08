@@ -16,8 +16,6 @@ public class PerfilAnimal extends AppCompatActivity {
 
     MyAdapter2 myAdapter2;
 
-    String animais;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +26,6 @@ public class PerfilAnimal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(PerfilAnimal.this, Saude.class);
-                startActivity(i);
-            }
-        });
-
-        Button btnNotas = findViewById(R.id.btnNotas);
-        btnNotas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(PerfilAnimal.this, Notas.class);
                 startActivity(i);
             }
         });

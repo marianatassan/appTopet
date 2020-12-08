@@ -19,11 +19,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MedicationsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MedicationsFragment extends Fragment {
     MyAdapter4 myAdapter4;
 

@@ -71,7 +71,7 @@ public class AnimaisLista extends AppCompatActivity {
                 MyItem novoAnimal = new MyItem();
                 novoAnimal.nome = nome;
 
-                AnimaisListaViewModel vm = new ViewModelProvider(this).get(AnimaisListaViewModel.class); //new ViewModelProvider(this).get(AnimaisListaViewModel.class); // Cria um ViewModel Provider referente a MainActivity;
+                AnimaisListaViewModel vm = new ViewModelProvider(this).get(AnimaisListaViewModel.class);
                 List<MyItem> animais = vm.getItems();
 
                 animais.add(novoAnimal);
@@ -83,7 +83,6 @@ public class AnimaisLista extends AppCompatActivity {
 
     public void startPerfilAnimal(MyItem animais) {
         Intent i = new Intent(AnimaisLista.this, PerfilAnimal.class);
-        //i.putExtra("photo_path", animais);
         startActivity(i);
     }
 }

@@ -19,16 +19,16 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class Saude extends AppCompatActivity {
-    MyAdapter3 myAdapter3;
-    MyAdapter4 myAdapter4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saude);
 
-        VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
-        setFragment(vaccinesFragment);
+        if (savedInstanceState == null) {
+            VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
+            setFragment(vaccinesFragment);
+        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavSaude);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

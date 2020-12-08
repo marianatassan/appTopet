@@ -29,11 +29,21 @@ public class PerfilAnimalViewModel extends ViewModel {
         compromisso5.compromisso = "Tosagem";
         compromisso5.data = "25/05/2020";
 
+        MyItem compromisso6 = new MyItem();
+        compromisso6.compromisso = "Compromisso 6";
+        compromisso6.data = "25/05/2020";
+
+        MyItem compromisso7 = new MyItem();
+        compromisso7.compromisso = "Compromisso 7";
+        compromisso7.data = "25/05/2020";
+
         compromissos.add(compromisso1);
         compromissos.add(compromisso2);
         compromissos.add(compromisso3);
         compromissos.add(compromisso4);
         compromissos.add(compromisso5);
+        compromissos.add(compromisso6);
+        compromissos.add(compromisso7);
     }
 
     public List<MyItem> getItems() {
