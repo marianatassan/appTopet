@@ -1,11 +1,22 @@
 package com.example.apptopet;
 
+import android.net.Uri;
+
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PerfilAnimalViewModel extends ViewModel {
+    Uri selectPhotoLocation = null;
+
+    public Uri getSelectPhotoLocation() {
+        return selectPhotoLocation;
+    }
+
+    public void setSelectPhotoLocation(Uri selectPhotoLocation) {
+        this.selectPhotoLocation = selectPhotoLocation;
+    }
     List<MyItem> compromissos = new ArrayList<>();
 
     public PerfilAnimalViewModel() {
