@@ -19,12 +19,6 @@ public class SocialViewModel extends ViewModel {
     public void setSelectPhotoLocation(Uri selectPhotoLocation) {
         this.selectPhotoLocation = selectPhotoLocation;
     }
-
-    public SocialViewModel() {
-        MyItem novaFoto = new MyItem();
-        novaFoto.fotoSocial = selectPhotoLocation;
-        photos.add(novaFoto);
-    }
     public List<MyItem> getItems() {
         return photos;
     }

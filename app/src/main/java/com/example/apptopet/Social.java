@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,7 +28,8 @@ public class Social extends AppCompatActivity {
     SocialAdapter socialAdapter;
     List<MyItem> photos = new ArrayList<>();
     static int PHOTO_PICKER_REQUEST = 1;
-    Uri selectPhotoLocation;
+    Uri selectedPhotoLocation;
+    String photoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +37,6 @@ public class Social extends AppCompatActivity {
         setContentView(R.layout.activity_social);
 
         SocialViewModel vm = new ViewModelProvider(this).get(SocialViewModel.class);
-
-        Uri selectPhotoLocation = vm.getSelectPhotoLocation();
-
-        if(selectPhotoLocation != null) {
-            ImageView imvProfile = findViewById(R.id.imvProfile);
-            imvProfile.setImageURI(selectPhotoLocation);
-        }
 
         FloatingActionButton btnAddFoto = findViewById(R.id.floatingActionButton);
         btnAddFoto.setOnClickListener(new View.OnClickListener() {
@@ -79,21 +74,18 @@ public class Social extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PHOTO_PICKER_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
-                selectPhotoLocation = data.getData();
-                ImageView imvPerfil = findViewById(R.id.imvSocial);
-                imvPerfil.setImageURI(selectPhotoLocation);
-
-                SocialViewModel vm = new ViewModelProvider(this).get(SocialViewModel.class);
-                vm.setSelectPhotoLocation(selectPhotoLocation); // Armazena o Uri da foto dentro do ViewModel;
+                Uri selectedPhotoLocation = data.getData();
 
                 MyItem myItem = new MyItem();
-                myItem.fotoSocial = selectPhotoLocation;
+                myItem.fotoSocial = selectedPhotoLocation;
 
                 SocialViewModel vm3 = new ViewModelProvider(this).get(SocialViewModel.class);
                 List<MyItem> photos = vm3.getItems();
 
                 photos.add(myItem);
+                socialAdapter.notifyItemInserted(photos.size()-1);
             }
         }
     }
+
 }
