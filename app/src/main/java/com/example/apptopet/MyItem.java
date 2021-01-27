@@ -26,5 +26,6 @@ public class MyItem {
     public String dias;
 
     public Uri fotoSocial;
+    public String titulo;
 
 }

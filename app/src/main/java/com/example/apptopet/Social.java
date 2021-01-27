@@ -29,7 +29,7 @@ public class Social extends AppCompatActivity {
     List<MyItem> photos = new ArrayList<>();
     static int PHOTO_PICKER_REQUEST = 1;
     Uri selectedPhotoLocation;
-    String photoPath;
+    static int NEW_ITEM_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +38,12 @@ public class Social extends AppCompatActivity {
 
         SocialViewModel vm = new ViewModelProvider(this).get(SocialViewModel.class);
 
-        FloatingActionButton btnAddFoto = findViewById(R.id.floatingActionButton);
-        btnAddFoto.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabAddNewItem = findViewById(R.id.floatingActionButton); // Pega o id do botão de adicionar;
+        fabAddNewItem.setOnClickListener(new View.OnClickListener() { // Determina que, ao clicar no botão, uma função será executada;
             @Override
             public void onClick(View v) {
-                Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, PHOTO_PICKER_REQUEST);
-
+                Intent i = new Intent(Social.this, NovaPostagem.class); // estabelece uma intenção de navegação entre telas;
+                startActivityForResult(i, NEW_ITEM_REQUEST); //executa uma intenção que envolve a adição de itens e que retorna um resultado;
             }
         });
 
@@ -75,14 +73,17 @@ public class Social extends AppCompatActivity {
         if (requestCode == PHOTO_PICKER_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 Uri selectedPhotoLocation = data.getData();
+                String title = data.getStringExtra("title");
 
-                MyItem myItem = new MyItem();
-                myItem.fotoSocial = selectedPhotoLocation;
+                MyItem newItem = new MyItem();
+                newItem.fotoSocial = selectedPhotoLocation;
+                newItem.titulo = title;
 
-                SocialViewModel vm3 = new ViewModelProvider(this).get(SocialViewModel.class);
-                List<MyItem> photos = vm3.getItems();
+                SocialViewModel vm = new ViewModelProvider(this).get(SocialViewModel.class);
+                List<MyItem> photos = vm.getItems();
 
-                photos.add(myItem);
+                photos.add(newItem);
+
                 socialAdapter.notifyItemInserted(photos.size()-1);
             }
         }

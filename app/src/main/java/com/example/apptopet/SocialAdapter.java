@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
@@ -36,8 +37,11 @@ public class SocialAdapter extends RecyclerView.Adapter {
 
         View v = holder.itemView;
 
-        ImageView novaFoto = v.findViewById(R.id.imvSocial);
-        novaFoto.setImageURI(myItem.fotoSocial);
+        ImageView imvPhoto = v.findViewById(R.id.imvSocial);
+        imvPhoto.setImageURI(myItem.fotoSocial);
+
+        TextView tvTitle = v.findViewById(R.id.tvNomeA);
+        tvTitle.setText(myItem.titulo);
 
     }
 
