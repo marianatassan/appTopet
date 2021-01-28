@@ -37,12 +37,19 @@ public class SocialAdapter extends RecyclerView.Adapter {
         MyItem myItem = photos.get(position);
 
         View v = holder.itemView;
+        View vFix = holder.itemView;
+
+        ImageView imvPhotoFix = vFix.findViewById(R.id.imvSocial);
+        imvPhotoFix.setImageResource(myItem.postagem);
 
         ImageView imvPhoto = v.findViewById(R.id.imvSocial);
         imvPhoto.setImageURI(myItem.fotoSocial);
 
         TextView tvTitle = v.findViewById(R.id.tvNomeA);
         tvTitle.setText(myItem.titulo);
+
+        TextView tvTitleFix = vFix.findViewById(R.id.tvNomeA);
+        tvTitleFix.setText(myItem.tituloFix);
     }
 
     @Override
