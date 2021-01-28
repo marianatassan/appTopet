@@ -1,5 +1,6 @@
 package com.example.apptopet;
 
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,6 @@ public class SocialAdapter extends RecyclerView.Adapter {
 
         TextView tvTitle = v.findViewById(R.id.tvNomeA);
         tvTitle.setText(myItem.titulo);
-
     }
 
     @Override

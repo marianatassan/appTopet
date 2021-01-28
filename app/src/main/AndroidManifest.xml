@@ -26,6 +26,16 @@
         </activity>
         <activity android:name=".TelaPrincipal" />
         <activity android:name=".AnimaisLista" />
+        <provider
+            android:authorities="con.example.apptopet.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+            </meta-data>
+        </provider>
     </application>
 
 </manifest>

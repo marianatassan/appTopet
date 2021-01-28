@@ -13,7 +13,8 @@
         android:layout_height="300dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddItem"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -23,6 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddItem"
+        app:layout_constraintEnd_toStartOf="@+id/etDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvPhotoPreview"
         app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
@@ -39,7 +42,6 @@
         android:ems="10"
         android:hint="Nome"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imvPhotoPreview"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +70,6 @@
         android:gravity="start|top"
         android:hint="Legenda"
         android:inputType="textMultiLine"
-        android:text="Legenda"
         app:layout_constraintBottom_toTopOf="@+id/btnAddItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imvPhotoPreview"

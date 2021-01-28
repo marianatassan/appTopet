@@ -51,14 +51,13 @@ public class NovaPostagem extends AppCompatActivity {
                 Uri selectPhotoLocation = vm.getSelectPhotoLocation();
 
                 if (selectPhotoLocation == null) {
-                    Toast.makeText(NovaPostagem.this, "Você precisa selecionar uma imagem", Toast.LENGTH_LONG).show();
-                    return;
+                    Toast.makeText(NovaPostagem.this, "Você precisa selecionar uma imagem", Toast.LENGTH_LONG).show();                    return;
                 }
 
                 EditText etTitle = findViewById(R.id.etTitle);
                 String title = etTitle.getText().toString();
                 if (title == null) {
-                    Toast.makeText(NovaPostagem.this, "Você precisa definir um título", Toast.LENGTH_LONG).show(); // Exibe um aviso para o usuário selecionar alguma imagem;
+                    Toast.makeText(NovaPostagem.this, "Você precisa definir um título", Toast.LENGTH_LONG).show();
                     return;
                 }
 

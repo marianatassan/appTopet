@@ -3,6 +3,7 @@ package com.example.apptopet;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,15 +21,16 @@ import android.widget.ImageView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Social extends AppCompatActivity {
 
     SocialAdapter socialAdapter;
-    List<MyItem> photos = new ArrayList<>();
     static int PHOTO_PICKER_REQUEST = 1;
-    Uri selectedPhotoLocation;
     static int NEW_ITEM_REQUEST = 1;
 
     @Override
@@ -36,19 +38,17 @@ public class Social extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social);
 
-        SocialViewModel vm = new ViewModelProvider(this).get(SocialViewModel.class);
-
-        FloatingActionButton fabAddNewItem = findViewById(R.id.floatingActionButton); // Pega o id do botão de adicionar;
-        fabAddNewItem.setOnClickListener(new View.OnClickListener() { // Determina que, ao clicar no botão, uma função será executada;
+        FloatingActionButton fabAddNewItem = findViewById(R.id.floatingActionButton);
+        fabAddNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Social.this, NovaPostagem.class); // estabelece uma intenção de navegação entre telas;
-                startActivityForResult(i, NEW_ITEM_REQUEST); //executa uma intenção que envolve a adição de itens e que retorna um resultado;
+                Intent i = new Intent(Social.this, NovaPostagem.class);
+                startActivityForResult(i, NEW_ITEM_REQUEST);
             }
         });
 
-        SocialViewModel vm2 = new ViewModelProvider(this).get(SocialViewModel.class);
-        List<MyItem> photos = vm2.getItems();
+        SocialViewModel vm = new ViewModelProvider(this).get(SocialViewModel.class);
+        List<MyItem> photos = vm.getItems();
 
         socialAdapter = new SocialAdapter(this, photos);
 
