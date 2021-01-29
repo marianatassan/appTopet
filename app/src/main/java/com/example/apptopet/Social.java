@@ -89,4 +89,9 @@ public class Social extends AppCompatActivity {
         }
     }
 
+    public void startZoomSocial(MyItem photos) {
+        Intent i = new Intent(Social.this, ZoomSocial.class);
+        startActivity(i);
+    }
+
 }

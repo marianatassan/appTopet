@@ -27,6 +27,7 @@ public class MyItem {
 
     public Uri fotoSocial;
     public String titulo;
+    public String description;
     public int postagem;
     public String tituloFix;
 

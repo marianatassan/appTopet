@@ -51,18 +51,28 @@ public class NovaPostagem extends AppCompatActivity {
                 Uri selectPhotoLocation = vm.getSelectPhotoLocation();
 
                 if (selectPhotoLocation == null) {
-                    Toast.makeText(NovaPostagem.this, "Você precisa selecionar uma imagem", Toast.LENGTH_LONG).show();                    return;
+                    Toast.makeText(NovaPostagem.this, "Você precisa selecionar uma imagem", Toast.LENGTH_LONG).show();
+                    return;
                 }
 
                 EditText etTitle = findViewById(R.id.etTitle);
                 String title = etTitle.getText().toString();
-                if (title == null) {
+
+                if (title.isEmpty()) {
                     Toast.makeText(NovaPostagem.this, "Você precisa definir um título", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if (title.length()>15) {
+                    Toast.makeText(NovaPostagem.this, "Você ultrapassou o limite de caracteres", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 EditText etDescription = findViewById(R.id.etDescription);
                 String description = etDescription.getText().toString();
+                if (description.length() > 600) {
+                    Toast.makeText(NovaPostagem.this, "Você ultrapassou o limite de caracteres", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 Intent i = new Intent();
                 i.setData(selectPhotoLocation);

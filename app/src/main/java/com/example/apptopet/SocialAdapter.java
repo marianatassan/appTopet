@@ -1,5 +1,6 @@
 package com.example.apptopet;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,11 +34,18 @@ public class SocialAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         MyItem myItem = photos.get(position);
 
         View v = holder.itemView;
         View vFix = holder.itemView;
+
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                social.startZoomSocial(photos.get(position));
+            }
+        });
 
         ImageView imvPhotoFix = vFix.findViewById(R.id.imvSocial);
         imvPhotoFix.setImageResource(myItem.postagem);

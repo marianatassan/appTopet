@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NovaPostagem"></activity>
+        <activity
+            android:name=".ZoomSocial"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".NovaPostagem" />
         <activity android:name=".AddVaccine" />
         <activity android:name=".AddMedication" />
         <activity android:name=".Compromissos" />
@@ -26,15 +30,15 @@
         </activity>
         <activity android:name=".TelaPrincipal" />
         <activity android:name=".AnimaisLista" />
+
         <provider
-            android:authorities="con.example.apptopet.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="con.example.apptopet.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths">
-            </meta-data>
+                android:resource="@xml/file_paths"></meta-data>
         </provider>
     </application>
 
