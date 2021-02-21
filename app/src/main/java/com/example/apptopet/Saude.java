@@ -20,17 +20,20 @@ import java.util.List;
 
 public class Saude extends AppCompatActivity {
 
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saude);
-
-        if (savedInstanceState == null) {
+        /*if (savedInstanceState == null) {
             VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
             setFragment(vaccinesFragment);
-        }
+        }*/
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavSaude);
+        final SaudeViewModel vModel = new ViewModelProvider(this).get(SaudeViewModel.class);
+
+        bottomNavigationView = findViewById(R.id.btnNavSaude);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -38,15 +41,18 @@ public class Saude extends AppCompatActivity {
                     case R.id.opVaccines:
                         VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
                         setFragment(vaccinesFragment);
+                        vModel.setNavigationOptionSelected(R.id.opVaccines);
                         break;
                     case R.id.opMedications:
                         MedicationsFragment medicationsFragment = MedicationsFragment.newInstance();
                         setFragment(medicationsFragment);
+                        vModel.setNavigationOptionSelected(R.id.opMedications);
                         break;
                 }
                 return true;
             }
         });
+        bottomNavigationView.setSelectedItemId(vModel.getNavigationOptionSelected());
     }
 
     void setFragment(Fragment fragment) {

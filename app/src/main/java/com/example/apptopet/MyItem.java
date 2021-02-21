@@ -1,9 +1,13 @@
 package com.example.apptopet;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 
+import java.util.Date;
+
 public class MyItem {
+
     public String nome;
     public int foto;
 

@@ -5,9 +5,11 @@ import android.net.Uri;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class SocialViewModel extends ViewModel {
+
     List<MyItem> photos = new ArrayList<>();
 
     public SocialViewModel () {
