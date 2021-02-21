@@ -26,10 +26,6 @@ public class Saude extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saude);
-        /*if (savedInstanceState == null) {
-            VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
-            setFragment(vaccinesFragment);
-        }*/
 
         final SaudeViewModel vModel = new ViewModelProvider(this).get(SaudeViewModel.class);
 
