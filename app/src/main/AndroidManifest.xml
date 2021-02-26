@@ -12,26 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ZoomSocial"
+            android:name=".activity.ViewPostActivity"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".NovaPostagem" />
-        <activity android:name=".AddVaccine" />
-        <activity android:name=".AddMedication" />
-        <activity android:name=".Compromissos" />
-        <activity android:name=".Saude" />
-        <activity android:name=".PerfilAnimal" />
-        <activity android:name=".Social" />
-        <activity android:name=".AdicionarAnimal" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.AdicionarPostagemActivity" />
+        <activity android:name=".activity.AddVaccineActivity" />
+        <activity android:name=".activity.AddMedicationActivity" />
+        <activity android:name=".activity.ListaCompromissosActivity" />
+        <activity android:name=".activity.SaudeActivity" />
+        <activity android:name=".activity.PerfilAnimalActivity" />
+        <activity android:name=".activity.PostsActivity" />
+        <activity android:name=".activity.AdicionarAnimalActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TelaPrincipal" />
-        <activity android:name=".AnimaisLista" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.ListaAnimaisActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
