@@ -1,17 +1,15 @@
 package com.example.apptopet.model;
 
-import android.net.Uri;
-
 import androidx.lifecycle.ViewModel;
 
 public class AdicionarPostagemViewModel extends ViewModel {
-    Uri selectPhotoLocation = null;
+    String currentPhotoPath = "";
 
-    public Uri getSelectPhotoLocation() {
-        return selectPhotoLocation;
+    public String getCurrentPhotoPath() {
+        return currentPhotoPath;
     }
 
-    public void setSelectPhotoLocation(Uri selectPhotoLocation) {
-        this.selectPhotoLocation = selectPhotoLocation;
+    public void setCurrentPhotoPath(String currentPhotoPath) {
+        this.currentPhotoPath = currentPhotoPath;
     }
 }
