@@ -1,5 +1,8 @@
 package com.example.apptopet.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,58 +12,54 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.apptopet.activity.ViewPostActivity;
 import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
 import com.example.apptopet.activity.PostsActivity;
+import com.example.apptopet.model.PostagemItem;
 
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter {
 
-    PostsActivity postsActivity;
-    List<MyItem> photos;
+    Context context;
+    List<PostagemItem> postagemItems;
 
-    public PostsAdapter(PostsActivity postsActivity, List<MyItem> photos) {
-        this.postsActivity = postsActivity;
-        this.photos = photos;
+    public PostsAdapter(Context context, List<PostagemItem> postagemItems) {
+        this.context = context;
+        this.postagemItems = postagemItems;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(postsActivity);
+        LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.item_lista_social, parent, false);
-        return new RecyclerView.ViewHolder(v) {
-        };
+        MyViewHolder viewHolder = new MyViewHolder(v);
+
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
-        MyItem myItem = photos.get(position);
+        final PostagemItem postagemItem = this.postagemItems.get(position);
 
-        View v = holder.itemView;
-        View vFix = holder.itemView;
+        ImageView imvPhoto = holder.itemView.findViewById(R.id.imvSocial);
+        imvPhoto.setImageBitmap(postagemItem.getImg());
 
-        v.setOnClickListener(new View.OnClickListener() {
+        TextView tvTitle = holder.itemView.findViewById(R.id.tvNomeA);
+        tvTitle.setText(postagemItem.getTitulo());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postsActivity.startZoomSocial(photos.get(position));
+                Intent i = new Intent(context, ViewPostActivity.class);
+                i.putExtra("id_publicacao", postagemItem.getId_postagem());
+                context.startActivity(i);
             }
         });
-
-        ImageView imvPhotoFix = vFix.findViewById(R.id.imvSocial);
-        imvPhotoFix.setImageResource(myItem.postagem);
-
-        ImageView imvPhoto = v.findViewById(R.id.imvSocial);
-        imvPhoto.setImageURI(myItem.fotoSocial);
-
-        TextView tvTitle = v.findViewById(R.id.tvNomeA);
-        tvTitle.setText(myItem.titulo);
-
-        TextView tvTitleFix = vFix.findViewById(R.id.tvNomeA);
-        tvTitleFix.setText(myItem.tituloFix);
     }
 
     @Override
-    public int getItemCount() { return photos.size(); }
+    public int getItemCount() { return this.postagemItems.size(); }
 }

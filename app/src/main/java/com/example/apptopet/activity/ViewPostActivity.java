@@ -1,13 +1,19 @@
 package com.example.apptopet.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.apptopet.R;
 import com.example.apptopet.model.MyItem;
+import com.example.apptopet.model.PostagemItem;
+import com.example.apptopet.model.ViewPostViewModel;
 
 public class ViewPostActivity extends AppCompatActivity {
 
@@ -16,17 +22,24 @@ public class ViewPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zoom_social);
 
-        MyItem newZoom = new MyItem();
-        newZoom.postagem = R.drawable.calopsita;
-        ImageView imvZoom = findViewById(R.id.imvZoom);
-        imvZoom.setImageResource(newZoom.postagem);
+        Intent i = getIntent();
+        String id_postagem = i.getStringExtra("id_publicacao");
 
-        newZoom.tituloFix = "Kevin";
-        TextView tvTitle = findViewById(R.id.tvTitleZoom);
-        tvTitle.setText(newZoom.tituloFix);
+        ViewPostViewModel viewPostViewModel = new ViewModelProvider(this, new ViewPostViewModel.ViewPostagemViewModelFactory(id_postagem)).get(ViewPostViewModel.class);
 
-        newZoom.description = "Oi amigos! Olha como eu sou um gatão! Hoje tive um dia de spa, tomei banho e cortei as unhas e as asas";
-        TextView tvDescriptionZoom = findViewById(R.id.tvDescriptionZoom);
-        tvDescriptionZoom.setText(newZoom.description);
+        LiveData<PostagemItem> postagemItem = viewPostViewModel.getPostagemItem();
+        postagemItem.observe(this, new Observer<PostagemItem>() {
+            @Override
+            public void onChanged(PostagemItem postagemItem) {
+                ImageView imvZoom = findViewById(R.id.imvZoom);
+                imvZoom.setImageBitmap(postagemItem.getImg());
+
+                TextView tvTitleZoom = findViewById(R.id.tvTitleZoom);
+                tvTitleZoom.setText(postagemItem.getTitulo());
+
+                TextView tvDescriptionZoom = findViewById(R.id.tvDescriptionZoom);
+                tvDescriptionZoom.setText(postagemItem.getLegenda());
+            }
+        });
     }
 }
