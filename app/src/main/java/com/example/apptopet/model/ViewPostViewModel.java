@@ -23,10 +23,10 @@ import java.util.concurrent.Executors;
 public class ViewPostViewModel extends ViewModel{
 
     MutableLiveData<PostagemItem> postagemItem;
-    String id_postagem;
+    String id_publicacao;
 
-    public ViewPostViewModel(String id_postagem) {
-        this.id_postagem = id_postagem;
+    public ViewPostViewModel(String id_publicacao) {
+        this.id_publicacao = id_publicacao;
     }
 
     public LiveData<PostagemItem> getPostagemItem() {
@@ -43,7 +43,7 @@ public class ViewPostViewModel extends ViewModel{
             @Override
             public void run() {
                 HttpRequest httpRequest = new HttpRequest("https://servidor-topet-app.herokuapp.com/get_post_details.php", "GET", "UTF-8");
-                httpRequest.addParam("id_publicacao", id_postagem);
+                httpRequest.addParam("id_publicacao", id_publicacao);
 
                 try {
                     InputStream is = httpRequest.execute();
@@ -63,7 +63,7 @@ public class ViewPostViewModel extends ViewModel{
                         String pureBase64Encoded = imgBase64.substring(imgBase64.indexOf(",") + 1);
                         Bitmap img = Utils.base642Bitmap(pureBase64Encoded);
 
-                        PostagemItem p = new PostagemItem(titulo, legenda, img);
+                        PostagemItem p = new PostagemItem(img, titulo, legenda);
                         postagemItem.postValue(p);
                     }
 

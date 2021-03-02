@@ -1,17 +1,15 @@
-package com.example.apptopet.activity;
+package com.example.apptopet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.example.apptopet.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.apptopet.activity.CadastroActivity;
+import com.example.apptopet.activity.HomeActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,17 +18,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnGoogle = findViewById(R.id.btnGoogle);
-        btnGoogle.setOnClickListener(new View.OnClickListener() {
+        TextView tvLink = findViewById(R.id.tvLink);
+        tvLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                Intent i = new Intent(MainActivity.this, CadastroActivity.class);
                 startActivity(i);
             }
         });
 
-        Button btnFacebook = findViewById(R.id.btnFacebook);
-        btnFacebook.setOnClickListener(new View.OnClickListener() {
+        Button btnLogar = findViewById(R.id.btnLogar);
+        btnLogar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, HomeActivity.class);
