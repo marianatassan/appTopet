@@ -16,10 +16,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apptopet.R;
 import com.example.apptopet.model.AdicionarPostagemViewModel;
+import com.example.apptopet.util.Config;
 import com.example.apptopet.util.HttpRequest;
 import com.example.apptopet.util.Utils;
 
@@ -34,7 +36,7 @@ import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class AdicionarPostagemActivity extends AppCompatActivity {
+public class  AdicionarPostagemActivity extends AppCompatActivity {
     static int RESULT_TAKE_PICTURE = 1;
 
     @Override
@@ -57,7 +59,7 @@ public class AdicionarPostagemActivity extends AppCompatActivity {
                 v.setEnabled(false);
 
                 EditText etTitle = findViewById(R.id.etTitle);
-                String title = etTitle.getText().toString();
+                final String title = etTitle.getText().toString();
 
                 if (title.isEmpty()) {
                     Toast.makeText(AdicionarPostagemActivity.this, "Você precisa definir um título", Toast.LENGTH_LONG).show();
@@ -70,27 +72,66 @@ public class AdicionarPostagemActivity extends AppCompatActivity {
                     return;
                 }
 
-                EditText etDescription = findViewById(R.id.etDescription);
-                String description = etDescription.getText().toString();
+                final EditText etDescription = findViewById(R.id.etDescription);
+                final String description = etDescription.getText().toString();
                 if (description.length() > 600) {
                     Toast.makeText(AdicionarPostagemActivity.this, "Você ultrapassou o limite de caracteres", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
 
-                String currentPhotoPath = adicionarPostagemViewModel.getCurrentPhotoPath();
+                final String currentPhotoPath = adicionarPostagemViewModel.getCurrentPhotoPath();
                 if (currentPhotoPath.isEmpty()) {
                     Toast.makeText(AdicionarPostagemActivity.this, "O campo não foi preenchido", Toast.LENGTH_LONG).show();
                     v.setEnabled(true);
                     return;
                 }
+                final String login = Config.getLogin(AdicionarPostagemActivity.this);
+                final String senha = Config.getSenha(AdicionarPostagemActivity.this);
+                final String id_usuario = Config.getIdUsario(AdicionarPostagemActivity.this);
 
-                Intent i = new Intent();
-                i.putExtra("postagem", currentPhotoPath);
-                i.putExtra("title", title);
-                i.putExtra("description", description);
-                setResult(Activity.RESULT_OK, i);
-                finish();
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+                executorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        HttpRequest httpRequest = new HttpRequest("https://servidor-topet-app.herokuapp.com/create_post.php", "POST", "UTF-8");
+                        httpRequest.addParam("titulo", title);
+                        httpRequest.addParam("legenda", description);
+                        httpRequest.addFile("img", new File(currentPhotoPath));
+                        httpRequest.addParam("login", login);
+                        httpRequest.addParam("senha", senha);
+                        httpRequest.addParam("id_usuario", id_usuario);
+
+                        try {
+                            InputStream is = httpRequest.execute();
+                            String result = Utils.inputStream2String(is, "UTF-8");
+                            httpRequest.finish();
+
+                            JSONObject jsonObject = new JSONObject(result);
+                            final int success = jsonObject.getInt("success");
+                            if(success == 1) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(AdicionarPostagemActivity.this, "Postagem publicada com sucesso", Toast.LENGTH_LONG).show();
+                                        finish();
+                                    }
+                                });
+                            }
+                            else {
+                                final String error = jsonObject.getString("message");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(AdicionarPostagemActivity.this, error, Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        } catch (IOException | JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
         });
         ImageView imbChooseImage = findViewById(R.id.imvPhotoPreview);
