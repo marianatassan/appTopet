@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class Config {
-    public static void setIdUsuario(Context context, String id) {
+    public static void setIdUsuario(Context context, String id_usuario) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
         SharedPreferences.Editor mEditor = mPrefs.edit();
-        mEditor.putString("id", id).commit();
+        mEditor.putString("id_usuario", id_usuario).commit();
     }
 
     public static String getIdUsario(Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences("configs", 0);
-        return mPrefs.getString("id","");
+        return mPrefs.getString("id_usuario","");
     }
 
     public static void setLogin(Context context, String login) {

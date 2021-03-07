@@ -70,9 +70,10 @@ public class LoginActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
+                                        int indexArroba = id.indexOf("#");
                                         Config.setLogin(LoginActivity.this, login);
                                         Config.setSenha(LoginActivity.this, senha);
-                                        Config.setIdUsuario(LoginActivity.this, id);
+                                        Config.setIdUsuario(LoginActivity.this, id.substring(indexArroba + 1));
                                         Toast.makeText(LoginActivity.this, "Login realizado com sucesso", Toast.LENGTH_LONG).show();
                                         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                                         startActivity(i);
