@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else {
-            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            Intent i = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(i);
             finish();
         }

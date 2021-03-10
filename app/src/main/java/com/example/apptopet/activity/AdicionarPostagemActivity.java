@@ -30,6 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -179,6 +180,11 @@ public class  AdicionarPostagemActivity extends AppCompatActivity {
             AdicionarPostagemViewModel adicionarPostagemViewModel = new ViewModelProvider(this).get(AdicionarPostagemViewModel.class);
             String currentPhotoPath = adicionarPostagemViewModel.getCurrentPhotoPath();
             if (resultCode == Activity.RESULT_OK) {
+                try {
+                    Utils.scaleImage(currentPhotoPath, 2);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 ImageView imvPhotoPreview = findViewById(R.id.imvPhotoPreview);
                 Bitmap bitmap = Utils.getBitmap(currentPhotoPath, imvPhotoPreview.getWidth(), imvPhotoPreview.getHeight());
                 imvPhotoPreview.setImageBitmap(bitmap);
