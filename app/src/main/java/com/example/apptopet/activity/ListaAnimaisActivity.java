@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -40,8 +41,8 @@ public class ListaAnimaisActivity extends AppCompatActivity {
             }
         });
 
-        ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
-        List<MyItem> animais = vm.getItems();
+        final ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
+        final List<MyItem> animais = vm.getItems();
 
         listaAnimaisAdapter = new ListaAnimaisAdapter(this, animais);
 
@@ -55,9 +56,6 @@ public class ListaAnimaisActivity extends AppCompatActivity {
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvListaAnimais.getContext(), DividerItemDecoration.VERTICAL);
         rvListaAnimais.addItemDecoration(dividerItemDecoration);
-
-
-
     }
 
     @Override
@@ -65,15 +63,21 @@ public class ListaAnimaisActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_ITEM_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
+                Uri selectedPhotoLocation = data.getData();
                 String nome = data.getStringExtra("nome");
+                String raca = data.getStringExtra("raca");
+                String dt_nasc = data.getStringExtra("dt_nasc");
 
-                MyItem novoAnimal = new MyItem();
-                novoAnimal.nome = nome;
+                MyItem newItem = new MyItem();
+                newItem.fotoPerfil = selectedPhotoLocation;
+                newItem.nomeAnimal = nome;
+                newItem.raca = raca;
+                newItem.dt_nasc = dt_nasc;
 
                 ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
                 List<MyItem> animais = vm.getItems();
 
-                animais.add(novoAnimal);
+                animais.add(newItem);
 
                 listaAnimaisAdapter.notifyItemInserted(animais.size()-1);
             }

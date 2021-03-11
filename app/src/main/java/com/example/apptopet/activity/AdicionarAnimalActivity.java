@@ -2,6 +2,7 @@ package com.example.apptopet.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.apptopet.R;
+import com.example.apptopet.model.AdicionarAnimalViewModel;
 import com.example.apptopet.model.MyItem;
 
 import java.io.File;
@@ -25,12 +27,20 @@ import java.util.List;
 public class AdicionarAnimalActivity extends AppCompatActivity {
 
     static int PHOTO_PICKER_REQUEST = 1;
-    Uri selectedPhotoLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adicionar_animal);
+
+        AdicionarAnimalViewModel vm = new ViewModelProvider(this).get(AdicionarAnimalViewModel.class);
+
+        Uri selectPhotoLocation = vm.getSelectPhotoLocation();
+
+        if(selectPhotoLocation != null) {
+            ImageView imvPhotoPreview = findViewById(R.id.imvPerfilPreview);
+            imvPhotoPreview.setImageURI(selectPhotoLocation);
+        }
 
         final ImageView imvChooseImagePerfil = findViewById(R.id.imvPerfilPreview);
         imvChooseImagePerfil.setOnClickListener(new View.OnClickListener() {
@@ -42,16 +52,13 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
             }
         });
 
-        /*File dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File[] files = dir.listFiles();
-        for (int i = 0; i < files.length; i++) {
-            animal.add(files[i].getAbsolutePath());
-        }*/
-
         Button btnCadastrar = findViewById(R.id.btnCadastrar);
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AdicionarAnimalViewModel vm = new ViewModelProvider(AdicionarAnimalActivity.this).get(AdicionarAnimalViewModel.class);
+
+                Uri selectPhotoLocation = vm.getSelectPhotoLocation();
 
                 EditText etNome = findViewById(R.id.etNome);
                 String nome = etNome.getText().toString();
@@ -75,7 +82,10 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
                 }
 
                 Intent i = new Intent();
+                i.setData(selectPhotoLocation);
                 i.putExtra("nome", nome);
+                i.putExtra("raca", raca);
+                i.putExtra("dt_nasc", dt_nasc);
                 setResult(Activity.RESULT_OK, i);
                 finish();
             }
@@ -87,9 +97,12 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PHOTO_PICKER_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
-                selectedPhotoLocation = data.getData();
-                ImageView imvPerfilPreview = findViewById(R.id.imvPerfilPreview);
-                imvPerfilPreview.setImageURI(selectedPhotoLocation);
+                Uri selectPhotoLocation = data.getData();
+                ImageView imvPhotoPreview = findViewById(R.id.imvPerfilPreview);
+                imvPhotoPreview.setImageURI(selectPhotoLocation); // Pega o endereço da imagem e a exibe na tela;
+
+               AdicionarAnimalViewModel vm = new ViewModelProvider(this).get(AdicionarAnimalViewModel.class);
+                vm.setSelectPhotoLocation(selectPhotoLocation);
             }
         }
     }

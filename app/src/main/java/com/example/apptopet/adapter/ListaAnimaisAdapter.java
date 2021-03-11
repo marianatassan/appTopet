@@ -36,8 +36,6 @@ public class ListaAnimaisAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
-        MyItem myItem = animais.get(position);
-
         View v = holder.itemView;
         v.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,13 +44,13 @@ public class ListaAnimaisAdapter extends RecyclerView.Adapter {
             }
         });
 
+        MyItem myItem = animais.get(position);
+
         ImageView imvPhoto = v.findViewById(R.id.imvPhoto);
-        imvPhoto.setImageResource(myItem.foto);
+        imvPhoto.setImageURI(myItem.fotoPerfil);
 
         TextView tvNome = v.findViewById(R.id.tvNome);
-        tvNome.setText(myItem.nome);
-
-
+        tvNome.setText(myItem.nomeAnimal);
     }
 
     @Override
