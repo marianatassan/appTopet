@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.apptopet.model.MyItem;
+import com.example.apptopet.model.Compromisso;
 import com.example.apptopet.activity.PerfilAnimalActivity;
 import com.example.apptopet.R;
 
@@ -16,9 +16,9 @@ import java.util.List;
 
 public class PerfilAnimalAdapter extends RecyclerView.Adapter {
     PerfilAnimalActivity perfilAnimalActivity;
-    List<MyItem> compromissos;
+    List<Compromisso> compromissos;
 
-    public PerfilAnimalAdapter(PerfilAnimalActivity perfilAnimalActivity, List<MyItem> compromissos) {
+    public PerfilAnimalAdapter(PerfilAnimalActivity perfilAnimalActivity, List<Compromisso> compromissos) {
         this.perfilAnimalActivity = perfilAnimalActivity;
         this.compromissos = compromissos;
     }
@@ -37,14 +37,14 @@ public class PerfilAnimalAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MyItem myItem = compromissos.get(position);
+        Compromisso compromisso = compromissos.get(position);
         View v2 = holder.itemView;
 
         TextView tvCompromisso = v2.findViewById(R.id.tvCompromisso);
-        tvCompromisso.setText(myItem.compromisso);
+        tvCompromisso.setText(compromisso.descricao);
 
         TextView tvData = v2.findViewById(R.id.tvData);
-        tvData.setText(myItem.data);
+        tvData.setText((int) compromisso.data);
 
     }
 

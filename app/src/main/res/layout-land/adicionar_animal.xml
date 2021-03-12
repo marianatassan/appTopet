@@ -7,19 +7,6 @@
     android:background="#BAF291"
     tools:context=".activity.AdicionarAnimalActivity">
 
-    <TextView
-        android:id="@+id/tvDtNasc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="8dp"
-        android:hint="Data de nascimento:"
-        android:textColorHint="?android:attr/textColorHint"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRace" />
-
     <EditText
         android:id="@+id/etData"
         android:layout_width="0dp"
@@ -29,9 +16,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
+        android:hint="Data de nascimento (dd/mm/aaaa)"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvDtNasc"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etRace" />
 
     <Button

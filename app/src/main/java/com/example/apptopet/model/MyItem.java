@@ -29,9 +29,6 @@ public class MyItem {
     public String dtCompromisso;
     public String dias;
 
-    public Uri fotoPerfil;
-    public String nomeAnimal;
-    public String raca;
-    public String dt_nasc;
+
 
 }

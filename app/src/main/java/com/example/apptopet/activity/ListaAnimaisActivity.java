@@ -15,11 +15,20 @@ import android.view.View;
 
 import com.example.apptopet.R;
 import com.example.apptopet.adapter.ListaAnimaisAdapter;
+import com.example.apptopet.model.Animal;
 import com.example.apptopet.model.ListaAnimaisViewModel;
+import com.example.apptopet.model.MyDAO;
+import com.example.apptopet.model.MyDB;
 import com.example.apptopet.model.MyItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ListaAnimaisActivity extends AppCompatActivity {
 
@@ -42,7 +51,7 @@ public class ListaAnimaisActivity extends AppCompatActivity {
         });
 
         final ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
-        final List<MyItem> animais = vm.getItems();
+        final List<Animal> animais = vm.getItems();
 
         listaAnimaisAdapter = new ListaAnimaisAdapter(this, animais);
 
@@ -63,29 +72,49 @@ public class ListaAnimaisActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_ITEM_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
-                Uri selectedPhotoLocation = data.getData();
+                String fotoPerfilAnimal = data.getStringExtra("foto");
                 String nome = data.getStringExtra("nome");
                 String raca = data.getStringExtra("raca");
                 String dt_nasc = data.getStringExtra("dt_nasc");
 
-                MyItem newItem = new MyItem();
-                newItem.fotoPerfil = selectedPhotoLocation;
-                newItem.nomeAnimal = nome;
-                newItem.raca = raca;
-                newItem.dt_nasc = dt_nasc;
+                final Animal newAnimal = new Animal();
+                newAnimal.foto = fotoPerfilAnimal;
+                newAnimal.nomeAnimal = nome;
+                newAnimal.raca = raca;
+                try {
+                    Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dt_nasc);
+                    newAnimal.dt_nasc = date.getTime();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
+                ExecutorService executorService = Executors.newSingleThreadExecutor();
+                executorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        MyDAO myDAO = MyDB.getInstance(getApplication()).myDAO();
+                        myDAO.insertAnimal(newAnimal);
+                    }
+                });
                 ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
-                List<MyItem> animais = vm.getItems();
+                List<Animal> animais = vm.getItems();
 
-                animais.add(newItem);
+                animais.add(newAnimal);
 
                 listaAnimaisAdapter.notifyItemInserted(animais.size()-1);
             }
         }
     }
 
-    public void startPerfilAnimal(MyItem animais) {
+    public void startPerfilAnimal(Animal animal) {
         Intent i = new Intent(ListaAnimaisActivity.this, PerfilAnimalActivity.class);
+        i.putExtra("fotoPerfilAnimal", animal.foto);
+        i.putExtra("nomeAnimal", animal.nomeAnimal);
+        i.putExtra("raca", animal.raca);
+        Date date = new Date(animal.dt_nasc);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String strDate = dateFormat.format(date);
+        i.putExtra("dt_nasc", strDate);
         startActivity(i);
     }
 }

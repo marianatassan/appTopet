@@ -1,5 +1,6 @@
 package com.example.apptopet.adapter;
 
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +11,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apptopet.activity.ListaAnimaisActivity;
+import com.example.apptopet.model.Animal;
 import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
+import com.example.apptopet.util.Utils;
 
 import java.util.List;
 
 public class ListaAnimaisAdapter extends RecyclerView.Adapter {
 
     ListaAnimaisActivity listaAnimaisActivity;
-    List<MyItem> animais;
+    List<Animal> animais;
 
-    public ListaAnimaisAdapter(ListaAnimaisActivity listaAnimaisActivity, List<MyItem> animais) {
+    public ListaAnimaisAdapter(ListaAnimaisActivity listaAnimaisActivity, List<Animal> animais) {
         this.listaAnimaisActivity = listaAnimaisActivity;
         this.animais = animais;
     }
@@ -36,21 +39,21 @@ public class ListaAnimaisAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
+        final Animal animal = animais.get(position);
         View v = holder.itemView;
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listaAnimaisActivity.startPerfilAnimal(animais.get(position));
+                listaAnimaisActivity.startPerfilAnimal(animal);
             }
         });
 
-        MyItem myItem = animais.get(position);
-
+        Bitmap bmp = Utils.getBitmap(animal.foto);
         ImageView imvPhoto = v.findViewById(R.id.imvPhoto);
-        imvPhoto.setImageURI(myItem.fotoPerfil);
+        imvPhoto.setImageBitmap(bmp);
 
         TextView tvNome = v.findViewById(R.id.tvNome);
-        tvNome.setText(myItem.nomeAnimal);
+        tvNome.setText(animal.nomeAnimal);
     }
 
     @Override

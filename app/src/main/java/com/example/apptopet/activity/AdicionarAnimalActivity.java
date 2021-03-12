@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,14 +20,20 @@ import android.widget.Toast;
 import com.example.apptopet.R;
 import com.example.apptopet.model.AdicionarAnimalViewModel;
 import com.example.apptopet.model.MyItem;
+import com.example.apptopet.util.Utils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AdicionarAnimalActivity extends AppCompatActivity {
 
     static int PHOTO_PICKER_REQUEST = 1;
+    String fotoPerfilAnimal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,33 +63,38 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdicionarAnimalViewModel vm = new ViewModelProvider(AdicionarAnimalActivity.this).get(AdicionarAnimalViewModel.class);
+                //AdicionarAnimalViewModel vm = new ViewModelProvider(AdicionarAnimalActivity.this).get(AdicionarAnimalViewModel.class);
 
-                Uri selectPhotoLocation = vm.getSelectPhotoLocation();
+                //Uri selectPhotoLocation = vm.getSelectPhotoLocation();
 
                 EditText etNome = findViewById(R.id.etNome);
                 String nome = etNome.getText().toString();
                 if (nome.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir um nome", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir um nome.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 EditText etRace = findViewById(R.id.etRace);
                 String raca = etRace.getText().toString();
                 if (raca.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma raça", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma raça.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 EditText etData = findViewById(R.id.etData);
                 String dt_nasc = etData.getText().toString();
                 if (dt_nasc.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma data de nascimento", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma data de nascimento.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (fotoPerfilAnimal.isEmpty()) {
+                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa adicionar uma foto de perfil.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 Intent i = new Intent();
-                i.setData(selectPhotoLocation);
+                i.putExtra("foto", fotoPerfilAnimal);
                 i.putExtra("nome", nome);
                 i.putExtra("raca", raca);
                 i.putExtra("dt_nasc", dt_nasc);
@@ -92,17 +104,35 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
         });
     }
 
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp;
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File f = File.createTempFile(imageFileName,".jpg", storageDir);
+        return f;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PHOTO_PICKER_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 Uri selectPhotoLocation = data.getData();
-                ImageView imvPhotoPreview = findViewById(R.id.imvPerfilPreview);
-                imvPhotoPreview.setImageURI(selectPhotoLocation); // Pega o endereço da imagem e a exibe na tela;
+                try {
+                    Bitmap bmp = Utils.getBitmap(AdicionarAnimalActivity.this, selectPhotoLocation, 1);
+                    File f = createImageFile();
+                    Utils.saveImage(bmp, f.getAbsolutePath(), 1);
+                    fotoPerfilAnimal = f.getAbsolutePath();
+                    ImageView imvPhotoPreview = findViewById(R.id.imvPerfilPreview);
+                    imvPhotoPreview.setImageURI(selectPhotoLocation);
 
-               AdicionarAnimalViewModel vm = new ViewModelProvider(this).get(AdicionarAnimalViewModel.class);
-                vm.setSelectPhotoLocation(selectPhotoLocation);
+                    AdicionarAnimalViewModel vm = new ViewModelProvider(this).get(AdicionarAnimalViewModel.class);
+                    vm.setSelectPhotoLocation(selectPhotoLocation);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
