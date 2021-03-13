@@ -1,4 +1,4 @@
-package com.example.apptopet;
+package com.example.apptopet.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.apptopet.activity.CadastroActivity;
-import com.example.apptopet.activity.HomeActivity;
+import com.example.apptopet.R;
 import com.example.apptopet.util.Config;
 import com.example.apptopet.util.HttpRequest;
 import com.example.apptopet.util.Utils;

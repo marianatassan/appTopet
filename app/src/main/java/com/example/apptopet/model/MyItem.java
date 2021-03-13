@@ -7,10 +7,6 @@ import android.net.Uri;
 import java.util.Date;
 
 public class MyItem {
-
-    public String nome;
-    public int foto;
-
     public String compromisso;
     public String data;
 

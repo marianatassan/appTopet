@@ -50,8 +50,8 @@ public class ListaAnimaisActivity extends AppCompatActivity {
             }
         });
 
-        final ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
-        final List<Animal> animais = vm.getItems();
+        ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
+        List<Animal> animais = vm.getItems();
 
         listaAnimaisAdapter = new ListaAnimaisAdapter(this, animais);
 

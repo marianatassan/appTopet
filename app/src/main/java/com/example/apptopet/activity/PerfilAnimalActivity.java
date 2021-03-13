@@ -41,7 +41,7 @@ public class PerfilAnimalActivity extends AppCompatActivity {
         String raca = i.getStringExtra("raca");
         String dt_nasc = i.getStringExtra("dt_nasc");
 
-        //PerfilAnimalViewModel vm = new ViewModelProvider(this).get(PerfilAnimalViewModel.class);
+        PerfilAnimalViewModel vm = new ViewModelProvider(this).get(PerfilAnimalViewModel.class);
 
         //Uri selectPhotoLocation = vm.getSelectPhotoLocation();
 

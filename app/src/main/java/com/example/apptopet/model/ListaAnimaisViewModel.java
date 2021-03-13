@@ -9,13 +9,22 @@ import com.example.apptopet.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ListaAnimaisViewModel extends AndroidViewModel {
+
     List<Animal> animais = new ArrayList<>();
 
-    public ListaAnimaisViewModel(Application application) {
+    public ListaAnimaisViewModel(final Application application) {
         super(application);
-        animais = MyDB.getInstance(application).myDAO().getAnimais();
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                animais = MyDB.getInstance(application).myDAO().getAnimais();
+            }
+        });
     }
 
     public List<Animal> getItems() {

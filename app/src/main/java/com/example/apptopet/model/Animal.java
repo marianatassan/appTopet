@@ -11,7 +11,7 @@ public class Animal {
     public String raca;
     public long dt_nasc;
 
-    @PrimaryKey
-    public @NonNull String nomeAnimal;
+    @PrimaryKey @NonNull
+    public String nomeAnimal;
 
 }

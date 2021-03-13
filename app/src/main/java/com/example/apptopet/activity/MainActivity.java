@@ -1,11 +1,10 @@
-package com.example.apptopet;
+package com.example.apptopet.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.apptopet.activity.HomeActivity;
 import com.example.apptopet.util.Config;
 
 public class MainActivity extends AppCompatActivity {

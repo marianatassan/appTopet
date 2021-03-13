@@ -7,50 +7,21 @@
     android:background="#BAF291"
     tools:context=".activity.AdicionarAnimalActivity">
 
-    <TextView
-        android:id="@+id/tvDtNasc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="8dp"
-        android:hint="Data de nascimento:"
-        android:textColorHint="?android:attr/textColorHint"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRace" />
-
-    <EditText
-        android:id="@+id/etData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/btnCadastrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvDtNasc"
-        app:layout_constraintTop_toBottomOf="@+id/etRace" />
-
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:background="#8ECC6D"
         android:hint="Cadastrar"
         android:textColorHint="?android:attr/textColorHint"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDtNasc" />
+        app:layout_constraintTop_toBottomOf="@+id/etData" />
 
     <EditText
         android:id="@+id/etNome"
@@ -102,6 +73,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/etData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="Data de nascimento (dd/mm/yyyy)"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRace" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
