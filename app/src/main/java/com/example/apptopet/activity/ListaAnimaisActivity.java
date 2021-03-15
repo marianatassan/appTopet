@@ -2,6 +2,8 @@ package com.example.apptopet.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,11 +32,9 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class ListaAnimaisActivity extends AppCompatActivity {
+public class    ListaAnimaisActivity extends AppCompatActivity {
 
     static int NEW_ITEM_REQUEST = 1;
-
-    ListaAnimaisAdapter listaAnimaisAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +51,23 @@ public class ListaAnimaisActivity extends AppCompatActivity {
         });
 
         ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
-        List<Animal> animais = vm.getItems();
+        LiveData<List<Animal>> animais = vm.getItems();
 
-        listaAnimaisAdapter = new ListaAnimaisAdapter(this, animais);
+        final RecyclerView rvListaAnimais = findViewById(R.id.rvListaAnimais);
 
-        RecyclerView rvListaAnimais = findViewById(R.id.rvListaAnimais);
+        animais.observe(this, new Observer<List<Animal>>() {
+            @Override
+            public void onChanged(List<Animal> animals) {
+                ListaAnimaisAdapter listaAnimaisAdapter = new ListaAnimaisAdapter(ListaAnimaisActivity.this, animals);
+                rvListaAnimais.setAdapter(listaAnimaisAdapter);
+            }
+        });
+
+
         rvListaAnimais.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvListaAnimais.setLayoutManager(layoutManager);
-
-        rvListaAnimais.setAdapter(listaAnimaisAdapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvListaAnimais.getContext(), DividerItemDecoration.VERTICAL);
         rvListaAnimais.addItemDecoration(dividerItemDecoration);
@@ -96,12 +102,6 @@ public class ListaAnimaisActivity extends AppCompatActivity {
                         myDAO.insertAnimal(newAnimal);
                     }
                 });
-                ListaAnimaisViewModel vm = new ViewModelProvider(this).get(ListaAnimaisViewModel.class);
-                List<Animal> animais = vm.getItems();
-
-                animais.add(newAnimal);
-
-                listaAnimaisAdapter.notifyItemInserted(animais.size()-1);
             }
         }
     }

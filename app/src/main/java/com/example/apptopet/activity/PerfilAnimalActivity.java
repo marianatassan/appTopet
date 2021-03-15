@@ -23,6 +23,7 @@ import com.example.apptopet.model.Compromisso;
 import com.example.apptopet.model.MyItem;
 import com.example.apptopet.model.PerfilAnimalViewModel;
 import com.example.apptopet.util.Utils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -58,6 +59,14 @@ public class PerfilAnimalActivity extends AppCompatActivity {
         TextView tvDtNasc = findViewById(R.id.tvDtNascimento);
         tvDtNasc.setText(dt_nasc);
 
+        FloatingActionButton floatingActionButton = findViewById(R.id.fabtnPerfil);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PerfilAnimalActivity.this, AdicionarCompromissoActivity.class);
+                startActivity(i);
+            }
+        });
 
         Button btnSaude = findViewById(R.id.btnSaude);
         btnSaude.setOnClickListener(new View.OnClickListener() {
