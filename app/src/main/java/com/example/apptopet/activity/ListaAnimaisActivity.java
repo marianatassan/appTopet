@@ -32,7 +32,8 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class    ListaAnimaisActivity extends AppCompatActivity {
+public class
+ ListaAnimaisActivity extends AppCompatActivity {
 
     static int NEW_ITEM_REQUEST = 1;
 
@@ -81,12 +82,14 @@ public class    ListaAnimaisActivity extends AppCompatActivity {
                 String fotoPerfilAnimal = data.getStringExtra("foto");
                 String nome = data.getStringExtra("nome");
                 String raca = data.getStringExtra("raca");
+                String especie = data.getStringExtra("especie");
                 String dt_nasc = data.getStringExtra("dt_nasc");
 
                 final Animal newAnimal = new Animal();
                 newAnimal.foto = fotoPerfilAnimal;
                 newAnimal.nomeAnimal = nome;
                 newAnimal.raca = raca;
+                newAnimal.especie = especie;
                 try {
                     Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dt_nasc);
                     newAnimal.dt_nasc = date.getTime();
@@ -111,6 +114,7 @@ public class    ListaAnimaisActivity extends AppCompatActivity {
         i.putExtra("fotoPerfilAnimal", animal.foto);
         i.putExtra("nomeAnimal", animal.nomeAnimal);
         i.putExtra("raca", animal.raca);
+        i.putExtra("especie", animal.especie);
         Date date = new Date(animal.dt_nasc);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String strDate = dateFormat.format(date);

@@ -19,12 +19,12 @@ public abstract class MyDAO {
     abstract public LiveData<List<Animal>> getAnimais();
 
     @Query("SELECT * FROM Compromisso WHERE data > :dataAtual ORDER BY data ASC")
-    abstract public List<Compromisso> getCompromissos(long dataAtual);
+    abstract public LiveData<List<Compromisso>> getCompromissos(long dataAtual);
 
-    @Query("SELECT id, descricao, data FROM Compromisso WHERE nomeAnimal = :nomeAnimal AND data > :dataAtual ORDER BY data ASC")
-    abstract public List<Compromisso> getCompromissosAnimal(String nomeAnimal, long dataAtual);
+    @Query("SELECT id, descricao, data FROM Compromisso WHERE nomeAnimal = :nomeAnimal AND data >= :dataAtual ORDER BY data ASC")
+    abstract public LiveData<List<Compromisso>> getCompromissosAnimal(String nomeAnimal, long dataAtual);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract public void insertCompromisso(Compromisso compromisso);
 }
 

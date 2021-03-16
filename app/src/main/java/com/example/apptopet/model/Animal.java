@@ -9,6 +9,7 @@ public class Animal {
     public String foto;
 
     public String raca;
+    public String especie;
     public long dt_nasc;
 
     @PrimaryKey @NonNull

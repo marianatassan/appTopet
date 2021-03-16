@@ -63,9 +63,6 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //AdicionarAnimalViewModel vm = new ViewModelProvider(AdicionarAnimalActivity.this).get(AdicionarAnimalViewModel.class);
-
-                //Uri selectPhotoLocation = vm.getSelectPhotoLocation();
 
                 EditText etNome = findViewById(R.id.etNome);
                 String nome = etNome.getText().toString();
@@ -78,6 +75,13 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
                 String raca = etRace.getText().toString();
                 if (raca.isEmpty()) {
                     Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma raça.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                EditText etEspecie = findViewById(R.id.etEspecie);
+                String especie = etEspecie.getText().toString();
+                if (especie.isEmpty()) {
+                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma espécie.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -97,6 +101,7 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
                 i.putExtra("foto", fotoPerfilAnimal);
                 i.putExtra("nome", nome);
                 i.putExtra("raca", raca);
+                i.putExtra("especie", especie);
                 i.putExtra("dt_nasc", dt_nasc);
                 setResult(Activity.RESULT_OK, i);
                 finish();

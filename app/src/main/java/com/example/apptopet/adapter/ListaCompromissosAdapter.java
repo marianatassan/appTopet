@@ -1,27 +1,36 @@
 package com.example.apptopet.adapter;
 
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apptopet.activity.ListaCompromissosActivity;
+import com.example.apptopet.model.Compromisso;
 import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ListaCompromissosAdapter extends RecyclerView.Adapter {
 
     ListaCompromissosActivity listaCompromissosActivity;
-    List<MyItem> compromissos2;
+    List<Compromisso> compromissos;
 
-    public ListaCompromissosAdapter(ListaCompromissosActivity listaCompromissosActivity, List<MyItem> compromissos2) {
+    public ListaCompromissosAdapter(ListaCompromissosActivity listaCompromissosActivity, List<Compromisso> compromissos) {
         this.listaCompromissosActivity = listaCompromissosActivity;
-        this.compromissos2 = compromissos2;
+        this.compromissos = compromissos;
     }
 
     @NonNull
@@ -32,25 +41,41 @@ public class ListaCompromissosAdapter extends RecyclerView.Adapter {
         return new RecyclerView.ViewHolder(v) {};
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MyItem myItem = compromissos2.get(position);
-
+        final Compromisso compromisso = compromissos.get(position);
         View v = holder.itemView;
 
         TextView tvTituloCompromisso = v.findViewById(R.id.tvTituloCompromisso);
-        tvTituloCompromisso.setText(myItem.nomeCompromisso);
+        tvTituloCompromisso.setText(compromisso.descricao);
 
         TextView tvNomePet = v.findViewById(R.id.tvNomePet);
-        tvNomePet.setText(myItem.nomePet);
+        tvNomePet.setText(compromisso.nomeAnimal);
+
+        Date date = new Date(compromisso.data);
+        SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yyyy");
+        String dateText = df2.format(date);
 
         TextView tvDataCompromisso = v.findViewById(R.id.tvDataCompromisso);
-        tvDataCompromisso.setText(myItem.dtCompromisso);
+        tvDataCompromisso.setText(dateText);
 
-        TextView tvDias = v.findViewById(R.id.tvDias);
-        tvDias.setText(myItem.dias);
+        try {
+            Date data2 = df2.parse(dateText);
+            Date dataAtual = new Date();
+            String dataAtualText = df2.format(dataAtual);
+            Date dataAtual2 = df2.parse(dataAtualText);
+            long dias = (data2.getTime() - dataAtual2.getTime()) / (1000*60*60*24);
+            TextView tvDias = v.findViewById(R.id.tvDias);
+            tvDias.setText("Faltam " + String.valueOf(dias)+ " dias");
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
-    public int getItemCount() { return compromissos2.size(); }
+    public int getItemCount() { return compromissos.size(); }
+
 }
