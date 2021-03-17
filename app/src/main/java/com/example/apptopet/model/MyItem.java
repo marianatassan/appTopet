@@ -19,12 +19,4 @@ public class MyItem {
     public String dtRemedio;
     public String dtRemedio2;
     public String pesoRemedio;
-
-    public String nomeCompromisso;
-    public String nomePet;
-    public String dtCompromisso;
-    public String dias;
-
-
-
 }

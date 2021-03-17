@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Animal.class, Compromisso.class}, version = 1, exportSchema = false)
+@Database(entities = {Animal.class, Compromisso.class, Vaccine.class, Medication.class}, version = 1, exportSchema = false)
 public abstract class MyDB extends RoomDatabase {
     private static MyDB INSTANCE;
 

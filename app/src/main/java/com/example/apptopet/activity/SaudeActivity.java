@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -26,18 +27,21 @@ public class SaudeActivity extends AppCompatActivity {
 
         final SaudeViewModel vModel = new ViewModelProvider(this).get(SaudeViewModel.class);
 
+        Intent intent = getIntent();
+        final String nomeAnimal = intent.getStringExtra("nomeAnimal");
+
         bottomNavigationView = findViewById(R.id.btnNavSaude);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.opVaccines:
-                        VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance();
+                        VaccinesFragment vaccinesFragment = VaccinesFragment.newInstance(nomeAnimal);
                         setFragment(vaccinesFragment);
                         vModel.setNavigationOptionSelected(R.id.opVaccines);
                         break;
                     case R.id.opMedications:
-                        MedicationsFragment medicationsFragment = MedicationsFragment.newInstance();
+                        MedicationsFragment medicationsFragment = MedicationsFragment.newInstance(nomeAnimal);
                         setFragment(medicationsFragment);
                         vModel.setNavigationOptionSelected(R.id.opMedications);
                         break;

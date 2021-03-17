@@ -26,6 +26,18 @@ public abstract class MyDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract public void insertCompromisso(Compromisso compromisso);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract public void insertVaccine(Vaccine vaccine);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract public void insertMedication(Medication medication);
+
+    @Query("SELECT * FROM Vaccine WHERE nomeAnimalVaccine = :nomeAnimalVaccine ORDER BY dtRevacina ASC")
+    abstract public LiveData<List<Vaccine>> getVaccinesAnimal(String nomeAnimalVaccine);
+
+    @Query("SELECT * FROM Medication WHERE nomeAnimalMedication = :nomeAnimalMedication ORDER BY dtRemedio2 ASC")
+    abstract public LiveData<List<Medication>> getMedicationsAnimal(String nomeAnimalMedication);
 }
 
 

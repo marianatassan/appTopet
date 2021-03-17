@@ -92,6 +92,7 @@ public class PerfilAnimalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(PerfilAnimalActivity.this, SaudeActivity.class);
+                i.putExtra("nomeAnimal", nomeAnimal);
                 startActivity(i);
             }
         });
