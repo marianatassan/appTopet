@@ -53,8 +53,8 @@ public class AddMedicationActivity extends AppCompatActivity {
 
                 Intent i = new Intent();
                 i.putExtra("nome", nome);
-                i.putExtra("dataVacina", dataMedicacao);
-                i.putExtra("dataRevacina", dataProximaDose);
+                i.putExtra("dataMedicacao", dataMedicacao);
+                i.putExtra("dataProximaDose", dataProximaDose);
                 i.putExtra("peso", peso);
                 setResult(Activity.RESULT_OK, i);
                 finish();

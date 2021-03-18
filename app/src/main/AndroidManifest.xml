@@ -20,7 +20,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AdicionarCompromissoActivity"></activity>
+        <activity android:name=".activity.AdicionarCompromissoActivity"
+            android:label="Novo compromisso"></activity>
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,17 +33,25 @@
         <activity
             android:name=".activity.ViewPostActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.AdicionarPostagemActivity" />
-        <activity android:name=".activity.AddVaccineActivity" />
-        <activity android:name=".activity.AddMedicationActivity" />
-        <activity android:name=".activity.ListaCompromissosActivity" />
-        <activity android:name=".activity.SaudeActivity" />
+        <activity android:name=".activity.AdicionarPostagemActivity"
+            android:label="Nova postagem"/>
+        <activity android:name=".activity.AddVaccineActivity"
+            android:label="Nova vacina"/>
+        <activity android:name=".activity.AddMedicationActivity"
+            android:label="Nova medicação"/>
+        <activity android:name=".activity.ListaCompromissosActivity"
+            android:label="Compromissos gerais"/>
+        <activity android:name=".activity.SaudeActivity"
+            android:label="Saúde"/>
         <activity android:name=".activity.PerfilAnimalActivity" />
-        <activity android:name=".activity.PostsActivity" />
-        <activity android:name=".activity.AdicionarAnimalActivity" />
+        <activity android:name=".activity.PostsActivity"
+            android:label="Público"/>
+        <activity android:name=".activity.AdicionarAnimalActivity"
+            android:label="Novo animal"/>
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.ListaAnimaisActivity" />
+        <activity android:name=".activity.ListaAnimaisActivity"
+            android:label="Meus pets"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -121,11 +121,10 @@ public class VaccinesFragment extends Fragment {
                 String dataVacina = data.getStringExtra("dataVacina");
                 String dataRevacina = data.getStringExtra("dataRevacina");
                 String peso = data.getStringExtra("peso");
-                Float pesoFloat = Float.parseFloat(peso);
 
                 final Vaccine newVaccine = new Vaccine();
                 newVaccine.nome = nome;
-                newVaccine.peso = pesoFloat;
+                newVaccine.peso = peso;
                 newVaccine.nomeAnimalVaccine = nomeAnimal;
                 try {
                     Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataVacina);

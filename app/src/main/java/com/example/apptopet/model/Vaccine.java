@@ -8,7 +8,7 @@ public class Vaccine {
     public String nome;
     public long dtVacina;
     public long dtRevacina;
-    public float peso;
+    public String peso;
     public String nomeAnimalVaccine;
 
     @PrimaryKey(autoGenerate = true)

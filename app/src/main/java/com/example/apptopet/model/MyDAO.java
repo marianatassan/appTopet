@@ -18,7 +18,7 @@ public abstract class MyDAO {
     @Query("SELECT * FROM Animal")
     abstract public LiveData<List<Animal>> getAnimais();
 
-    @Query("SELECT * FROM Compromisso WHERE data > :dataAtual ORDER BY data ASC")
+    @Query("SELECT * FROM Compromisso WHERE data >= :dataAtual ORDER BY data ASC")
     abstract public LiveData<List<Compromisso>> getCompromissos(long dataAtual);
 
     @Query("SELECT id, descricao, data FROM Compromisso WHERE nomeAnimal = :nomeAnimal AND data >= :dataAtual ORDER BY data ASC")

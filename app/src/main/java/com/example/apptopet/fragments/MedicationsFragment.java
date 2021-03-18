@@ -118,11 +118,10 @@ public class MedicationsFragment extends Fragment {
                 String dataMedicacao = data.getStringExtra("dataMedicacao");
                 String dataProximaDose = data.getStringExtra("dataProximaDose");
                 String peso = data.getStringExtra("peso");
-                Float pesoFloat = Float.parseFloat(peso);
 
                 final Medication newMedication = new Medication();
                 newMedication.nome = nome;
-                newMedication.peso = pesoFloat;
+                newMedication.peso = peso;
                 newMedication.nomeAnimalMedication = nomeAnimal;
                 try {
                     Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataMedicacao);

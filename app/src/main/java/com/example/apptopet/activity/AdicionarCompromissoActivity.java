@@ -42,6 +42,11 @@ public class AdicionarCompromissoActivity extends AppCompatActivity {
                     return;
                 }
 
+                if (descricao.length()>20) {
+                    Toast.makeText(AdicionarCompromissoActivity.this, "Você ultrapassou o limite de 20 caracteres na descrição", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 EditText etDataCompromisso = findViewById(R.id.etDataCompromisso);
                 String data = etDataCompromisso.getText().toString();
                 if (data.isEmpty()) {
