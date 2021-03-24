@@ -15,7 +15,7 @@ public abstract class MyDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract public void insertAnimal(Animal animal);
 
-    @Query("SELECT * FROM Animal")
+    @Query("SELECT * FROM Animal ORDER BY nomeAnimal")
     abstract public LiveData<List<Animal>> getAnimais();
 
     @Query("SELECT * FROM Compromisso WHERE data >= :dataAtual ORDER BY data ASC")

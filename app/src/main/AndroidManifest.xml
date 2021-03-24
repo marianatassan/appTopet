@@ -34,7 +34,8 @@
             android:name=".activity.ViewPostActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.AdicionarPostagemActivity"
-            android:label="Nova postagem"/>
+            android:label="Nova postagem"
+            android:screenOrientation="portrait"/>
         <activity android:name=".activity.AddVaccineActivity"
             android:label="Nova vacina"/>
         <activity android:name=".activity.AddMedicationActivity"

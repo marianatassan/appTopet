@@ -54,6 +54,12 @@ public class  AdicionarPostagemActivity extends AppCompatActivity {
             imvPhotoPreview.setImageBitmap(bitmap);
         }
 
+        ImageView imbChooseImage = findViewById(R.id.imvPhotoPreview);
+        imbChooseImage.setOnClickListener(new View.OnClickListener() { // Determina que, ao clicar no botão, uma função será executada;
+            @Override
+            public void onClick(View v) { dispatchTakePictureIntent(); }
+        });
+
         Button btnAddItem = findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() { //Determins que uma função será executada ao clicar no botão;
             @Override
@@ -135,11 +141,6 @@ public class  AdicionarPostagemActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
-        ImageView imbChooseImage = findViewById(R.id.imvPhotoPreview);
-        imbChooseImage.setOnClickListener(new View.OnClickListener() { // Determina que, ao clicar no botão, uma função será executada;
-            @Override
-            public void onClick(View v) { dispatchTakePictureIntent(); }
         });
     }
 
