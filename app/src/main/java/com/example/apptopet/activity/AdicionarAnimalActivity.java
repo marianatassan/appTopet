@@ -66,34 +66,18 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
 
                 EditText etNome = findViewById(R.id.etNome);
                 String nome = etNome.getText().toString();
-                if (nome.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir um nome.", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
                 EditText etRace = findViewById(R.id.etRace);
                 String raca = etRace.getText().toString();
-                if (raca.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma raça.", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
                 EditText etEspecie = findViewById(R.id.etEspecie);
                 String especie = etEspecie.getText().toString();
-                if (especie.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma espécie.", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
                 EditText etData = findViewById(R.id.etData);
                 String dt_nasc = etData.getText().toString();
-                if (dt_nasc.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa definir uma data de nascimento.", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
-                if (fotoPerfilAnimal.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você precisa adicionar uma foto de perfil.", Toast.LENGTH_LONG).show();
+                if (nome.isEmpty() || raca.isEmpty() || especie.isEmpty() || dt_nasc.isEmpty() || fotoPerfilAnimal.isEmpty()) {
+                    Toast.makeText(AdicionarAnimalActivity.this, "Você possui campo(s) vazio(s)", Toast.LENGTH_LONG).show();
                     return;
                 }
 

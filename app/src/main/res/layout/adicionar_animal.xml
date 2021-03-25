@@ -58,8 +58,9 @@
         android:textColorHint="?android:attr/textColorHint"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNome" />
+        app:layout_constraintTop_toBottomOf="@+id/etEspecie" />
 
     <ImageView
         android:id="@+id/imvPerfilPreview"
@@ -87,10 +88,11 @@
         android:ems="10"
         android:hint="Data de nascimento (dd/mm/yyyy)"
         android:inputType="textPersonName"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEspecie" />
+        app:layout_constraintTop_toBottomOf="@+id/etRace" />
 
     <EditText
         android:id="@+id/etEspecie"
@@ -105,8 +107,9 @@
         android:inputType="textPersonName"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRace" />
+        app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

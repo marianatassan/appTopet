@@ -54,8 +54,9 @@
         android:textColorHint="?android:attr/textColorHint"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNome" />
+        app:layout_constraintTop_toBottomOf="@+id/etEspecie" />
 
     <ImageView
         android:id="@+id/imvPerfilPreview"
@@ -87,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEspecie" />
+        app:layout_constraintTop_toBottomOf="@+id/etRace" />
 
     <EditText
         android:id="@+id/etEspecie"
@@ -103,7 +104,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRace" />
+        app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

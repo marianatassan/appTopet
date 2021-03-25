@@ -13,7 +13,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:hint="Nome: Dudu"
+        android:hint="Nome: "
+        android:text="Nome: "
+        android:textColor="@color/cardview_dark_background"
         android:textColorHint="#000000"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imvProfile"
@@ -25,12 +27,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="Raça: Alguma"
+        android:hint="Raça: "
+        android:text="Raça: "
+        android:textColor="@color/cardview_dark_background"
         android:textColorHint="#000000"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imvProfile"
-        app:layout_constraintTop_toBottomOf="@+id/tvNomeAnimal" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEspecie" />
 
     <TextView
         android:id="@+id/tvEspecie"
@@ -38,12 +41,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="Espécie: Cachorro"
+        android:hint="Espécie: "
+        android:text="Espécie: "
+        android:textColor="@color/cardview_dark_background"
         android:textColorHint="#000000"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imvProfile"
-        app:layout_constraintTop_toBottomOf="@+id/tvRaca" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNomeAnimal" />
 
     <TextView
         android:id="@+id/tvDtNascimento"
@@ -51,12 +55,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:hint="Data de nascimento: 12/10/2020"
+        android:hint="Data de nascimento: "
+        android:text="Data de nascimento: "
+        android:textColor="@color/cardview_dark_background"
         android:textColorHint="#000000"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imvProfile"
-        app:layout_constraintTop_toBottomOf="@+id/tvEspecie" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRaca" />
 
     <View
         android:id="@+id/divider2"
@@ -148,7 +153,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

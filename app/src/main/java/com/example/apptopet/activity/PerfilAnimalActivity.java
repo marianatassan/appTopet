@@ -69,13 +69,13 @@ public class PerfilAnimalActivity extends AppCompatActivity {
         tvNomeAnimal.setText(nomeAnimal);
 
         TextView tvRaca = findViewById(R.id.tvRaca);
-        tvRaca.setText(raca);
+        tvRaca.setText(tvRaca.getText().toString() + raca);
 
         TextView tvEspecie = findViewById(R.id.tvEspecie);
-        tvEspecie.setText(especie);
+        tvEspecie.setText(tvEspecie.getText().toString() + especie);
 
         TextView tvDtNasc = findViewById(R.id.tvDtNascimento);
-        tvDtNasc.setText(dt_nasc);
+        tvDtNasc.setText(tvDtNasc.getText().toString() + dt_nasc);
 
         FloatingActionButton floatingActionButton = findViewById(R.id.fabtnPerfil);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
