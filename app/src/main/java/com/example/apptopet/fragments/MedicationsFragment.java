@@ -21,14 +21,10 @@ import android.view.ViewGroup;
 import com.example.apptopet.activity.AddMedicationActivity;
 import com.example.apptopet.R;
 import com.example.apptopet.adapter.MedicationsAdapter;
-import com.example.apptopet.adapter.VaccinesAdapter;
 import com.example.apptopet.model.Medication;
 import com.example.apptopet.model.MyDAO;
 import com.example.apptopet.model.MyDB;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.model.RemedioViewModel;
-import com.example.apptopet.model.Vaccine;
-import com.example.apptopet.model.VacinaViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;

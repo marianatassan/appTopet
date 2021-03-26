@@ -8,8 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.apptopet.model.Compromisso;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
 import com.example.apptopet.fragments.VaccinesFragment;
 import com.example.apptopet.model.Vaccine;

@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,7 +20,6 @@ import com.example.apptopet.model.Animal;
 import com.example.apptopet.model.ListaAnimaisViewModel;
 import com.example.apptopet.model.MyDAO;
 import com.example.apptopet.model.MyDB;
-import com.example.apptopet.model.MyItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DateFormat;

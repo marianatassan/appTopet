@@ -12,14 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apptopet.activity.ListaCompromissosActivity;
 import com.example.apptopet.model.Compromisso;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 

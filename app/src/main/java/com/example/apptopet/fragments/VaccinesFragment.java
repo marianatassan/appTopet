@@ -20,14 +20,9 @@ import android.view.ViewGroup;
 
 import com.example.apptopet.activity.AddVaccineActivity;
 import com.example.apptopet.R;
-import com.example.apptopet.activity.PerfilAnimalActivity;
-import com.example.apptopet.adapter.PerfilAnimalAdapter;
 import com.example.apptopet.adapter.VaccinesAdapter;
-import com.example.apptopet.model.Compromisso;
 import com.example.apptopet.model.MyDAO;
 import com.example.apptopet.model.MyDB;
-import com.example.apptopet.model.MyItem;
-import com.example.apptopet.model.PerfilAnimalViewModel;
 import com.example.apptopet.model.Vaccine;
 import com.example.apptopet.model.VacinaViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apptopet.activity.ListaAnimaisActivity;
 import com.example.apptopet.model.Animal;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
 import com.example.apptopet.util.Utils;
 

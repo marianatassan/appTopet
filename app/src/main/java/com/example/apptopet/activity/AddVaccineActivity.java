@@ -25,29 +25,18 @@ public class AddVaccineActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText etNomeVacina = findViewById(R.id.etNomeVacina);
                 String nome = etNomeVacina.getText().toString();
-                if (nome.isEmpty()) {
-                    Toast.makeText(AddVaccineActivity.this, "Você precisa definir um nome.", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
                 EditText etDataVacina = findViewById(R.id.etDataVacina);
                 String dataVacina = etDataVacina.getText().toString();
-                if (dataVacina.isEmpty()) {
-                    Toast.makeText(AddVaccineActivity.this, "Você precisa definir a data da 1ª dose.", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
                 EditText etDataRevacina = findViewById(R.id.etDataRevacina);
                 String dataRevacina = etDataRevacina.getText().toString();
-                if (dataRevacina.isEmpty()) {
-                    Toast.makeText(AddVaccineActivity.this, "Você precisa definir a data da próxima dose.", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
                 EditText etPesoVacina = findViewById(R.id.etPesoVacina);
                 String peso = etPesoVacina.getText().toString();
-                if (peso.isEmpty()) {
-                    Toast.makeText(AddVaccineActivity.this, "Você precisa definir um peso.", Toast.LENGTH_LONG).show();
+
+                if (nome.isEmpty() || dataVacina.isEmpty() || dataRevacina.isEmpty() || peso.isEmpty()) {
+                    Toast.makeText(AddVaccineActivity.this, "Você possui campo(s) não preenchido(s)", Toast.LENGTH_LONG).show();
                     return;
                 }
 

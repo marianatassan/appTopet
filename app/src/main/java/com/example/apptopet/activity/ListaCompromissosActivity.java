@@ -12,11 +12,8 @@ import android.os.Bundle;
 
 import com.example.apptopet.R;
 import com.example.apptopet.adapter.ListaCompromissosAdapter;
-import com.example.apptopet.adapter.PerfilAnimalAdapter;
 import com.example.apptopet.model.Compromisso;
 import com.example.apptopet.model.ListaCompromissosViewModel;
-import com.example.apptopet.model.MyItem;
-import com.example.apptopet.model.PerfilAnimalViewModel;
 
 import java.text.DateFormat;
 import java.text.ParseException;

@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apptopet.fragments.MedicationsFragment;
 import com.example.apptopet.model.Medication;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
-import com.example.apptopet.model.Vaccine;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

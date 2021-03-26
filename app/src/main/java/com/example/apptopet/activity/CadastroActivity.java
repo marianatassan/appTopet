@@ -33,15 +33,12 @@ public class CadastroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText etNovoLogin =  findViewById(R.id.etNovoLogin);
                 final String novoLogin = etNovoLogin.getText().toString();
-                if(novoLogin.isEmpty()) {
-                    Toast.makeText(CadastroActivity.this, "Campo de login não preenchido", Toast.LENGTH_LONG).show();
-                    return;
-                }
 
                 EditText etNovaSenha =  findViewById(R.id.etNovaSenha);
                 final String novaSenha = etNovaSenha.getText().toString();
-                if(novaSenha.isEmpty()) {
-                    Toast.makeText(CadastroActivity.this, "Campo de senha não preenchido", Toast.LENGTH_LONG).show();
+
+                if(novoLogin.isEmpty() || novaSenha.isEmpty()) {
+                    Toast.makeText(CadastroActivity.this, "Você possui campo(s) não preenchido(s).", Toast.LENGTH_LONG).show();
                     return;
                 }
 

@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.apptopet.R;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.model.PostagemItem;
 import com.example.apptopet.model.ViewPostViewModel;
 

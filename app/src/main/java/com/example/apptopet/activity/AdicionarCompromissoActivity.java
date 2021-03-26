@@ -37,20 +37,17 @@ public class AdicionarCompromissoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText etDescricaoCompromisso = findViewById(R.id.etDescricaoCompromisso);
                 String descricao = etDescricaoCompromisso.getText().toString();
-                if (descricao.isEmpty()) {
-                    Toast.makeText(AdicionarCompromissoActivity.this, "Você precisa definir uma descrição.", Toast.LENGTH_LONG).show();
+
+                EditText etDataCompromisso = findViewById(R.id.etDataCompromisso);
+                String data = etDataCompromisso.getText().toString();
+
+                if (descricao.isEmpty() || data.isEmpty()) {
+                    Toast.makeText(AdicionarCompromissoActivity.this, "Você possui campo(s) não preenchido(s).", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 if (descricao.length()>20) {
                     Toast.makeText(AdicionarCompromissoActivity.this, "Você ultrapassou o limite de 20 caracteres na descrição", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                EditText etDataCompromisso = findViewById(R.id.etDataCompromisso);
-                String data = etDataCompromisso.getText().toString();
-                if (data.isEmpty()) {
-                    Toast.makeText(AdicionarCompromissoActivity.this, "Você precisa definir uma data.", Toast.LENGTH_LONG).show();
                     return;
                 }
 

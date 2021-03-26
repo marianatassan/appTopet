@@ -2,7 +2,6 @@ package com.example.apptopet.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apptopet.activity.ViewPostActivity;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.R;
-import com.example.apptopet.activity.PostsActivity;
 import com.example.apptopet.model.PostagemItem;
 
 import java.util.List;
@@ -35,9 +32,9 @@ public class PostsAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.item_lista_social, parent, false);
-        MyViewHolder viewHolder = new MyViewHolder(v);
+        PostsViewHolder postsViewHolder = new PostsViewHolder(v);
 
-        return viewHolder;
+        return postsViewHolder;
     }
 
     @Override

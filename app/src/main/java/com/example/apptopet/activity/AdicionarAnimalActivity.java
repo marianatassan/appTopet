@@ -13,22 +13,18 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.apptopet.R;
 import com.example.apptopet.model.AdicionarAnimalViewModel;
-import com.example.apptopet.model.MyItem;
 import com.example.apptopet.util.Utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class AdicionarAnimalActivity extends AppCompatActivity {
 
@@ -77,7 +73,7 @@ public class AdicionarAnimalActivity extends AppCompatActivity {
                 String dt_nasc = etData.getText().toString();
 
                 if (nome.isEmpty() || raca.isEmpty() || especie.isEmpty() || dt_nasc.isEmpty() || fotoPerfilAnimal.isEmpty()) {
-                    Toast.makeText(AdicionarAnimalActivity.this, "Você possui campo(s) vazio(s)", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AdicionarAnimalActivity.this, "Você possui campo(s) não preenchido(s)", Toast.LENGTH_LONG).show();
                     return;
                 }
 
